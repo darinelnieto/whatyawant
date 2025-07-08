@@ -1,0 +1,38 @@
+@import 'default_theme';
+
+// Ditto include zone (don't delete anything below)
+// #DittoPartials
+@import "./partials/single-post/body-post";
+@import "./partials/globals/header-content";
+@import "./partials/globals/paghinate-posts";
+@import "./partials/single-post/banner-post";
+@import "./partials/single-portfolio/contact";
+@import "./partials/globals/map";
+@import "./partials/globals/fqas";
+@import "./partials/single-portfolio/gallery";
+@import "./partials/single-portfolio/portfolio-body";
+@import "./partials/single-portfolio/single-banner";
+@import "./partials/globals/blog";
+@import "./partials/whatyawant/wyw-text-block";
+@import "./partials/globals/parallax";
+@import "./partials/whatyawant/wyw-text-content";
+@import "./partials/globals/generic-banner";
+@import "./partials/home/reviews";
+@import "./partials/home/instagram";
+@import "./partials/home/playlist";
+@import "./partials/home/video";
+@import "./partials/home/zones-categories";
+@import "./partials/home/rent-my-property";
+@import "./partials/home/feature-properties";
+@import "./partials/home/tab-after-banner";
+@import "./partials/home/banner";
+
+// #DittoTemplates
+@import "./templates/contact-template";
+@import "./templates/single-blog-template";
+@import "./templates/single-property-template";
+@import "./templates/properites-template";
+@import "./templates/blog-page-template";
+@import "./templates/whatyawant-template";
+@import "./templates/home-template";
+

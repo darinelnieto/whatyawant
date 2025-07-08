@@ -1,0 +1,18 @@
+.instagram-partial-d57523 {
+    h2{
+        color: $dark;
+        font-family: $raleway;
+        font-weight: 800;
+        font-size: 40px;
+        @media(max-width:768px){
+            font-size: 26.666666666667px;
+        }
+    }
+    hr{
+        background: $gray_borders;
+        width: 90px;
+        height: 2px !important;
+        margin: 27px auto;
+        opacity: 1;
+    }
+}

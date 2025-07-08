@@ -1,0 +1,31 @@
+.contact-partial-3294a6 {
+    background: $yellow;
+    padding: 36px 36px 36px 36px;
+    .col-12{
+        padding: 0;
+        h2{
+            margin-bottom: 38px;
+            font-size: 40px;
+            color: #f7f7f7;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+        .description{
+            font-size: 18px;
+            line-height: 1.75;
+            font-weight: 400;
+            color: $gray;
+            a{
+                color: $black;
+                text-decoration: none;
+                &:hover{
+                    color: #f7f7f7;
+                }
+            }
+        }
+        img{
+            width: 70px;
+            height: auto;
+        }
+    }
+}

@@ -1,0 +1,82 @@
+.zones-categories-partial-6c7844 {
+    position: relative;
+    height: 428px;
+    width: 100%;
+    overflow: hidden;
+    @media(max-width:768px){
+        height: 320.594px;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    .text-contain{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+        h2{
+            font-family: $raleway;
+            font-size: 120px;
+            color: $white;
+            font-weight: 900;
+            margin-bottom: 20px;
+            @media (max-width:768px) {
+                font-size: 35px;
+            }
+        }
+        p{
+            margin-top: 36px;
+            margin-bottom: 20px;
+            color: $white;
+            font-family: $raleway;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        a{
+            display: flex;
+            margin: 36px auto 0 auto;
+            color: $white;
+            background-color: transparent;
+            border: 1px solid $white;
+            width: fit-content;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            font-family: $raleway;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 11px 31px 11px 31px;
+            text-decoration: none;
+            font-size: 12px;
+            transition: .2s;
+            position: relative;
+            &::before{
+                content: '';
+                width: 114%;
+                height: 150%;
+                visibility: hidden;
+                border: 1px solid $white;
+                background: transparent;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &:hover{
+                color: $black;
+                background: $white;
+                &::before{
+                    width: 100%;
+                    height: 100%;
+                    visibility: visible;
+                    transition: .5s;
+                }
+            }
+        }
+    }
+}

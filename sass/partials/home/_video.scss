@@ -1,0 +1,28 @@
+.video-partial-d34ac9 {
+    position: relative;
+    height: 428px;
+    width: 100%;
+    overflow: hidden;
+    @media(max-width:768px){
+        height: 320.594px;
+    }
+    video{
+        height: 100% !important;
+        height: 100% !important;
+        object-position: center;
+        object-fit: cover;
+    }
+    .text-img{
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 564px;
+        height: 371.625px;
+        @media(max-width:768px){
+            width: 80%;
+            height: auto;
+        }
+    }
+}

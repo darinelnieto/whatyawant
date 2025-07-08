@@ -1,0 +1,160 @@
+.portfolio-body-partial-59cf78 {
+    background: $white;
+    padding: 36px 0;
+    .container{
+        max-width: 1200px;
+        .row{
+            padding: 0 24px;
+            .col-12{
+                .prices-content{
+                    .price{
+                        font-weight: 900;
+                        color: $dark;
+                        font-size: 40px;
+                        margin-bottom: 0;
+                    }
+                    .text-price{
+                        font-size: 18px;
+                        margin-top: 18px;
+                        margin-bottom: 0;
+                        line-height: 1.75;
+                        font-weight: 300;
+                        color: $gray;
+                    }
+                    .complement-prices{
+                        padding: 0;
+                        margin: 36px 0 0 0;
+                        list-style: none;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        li{
+                            font-size: 18px;
+                            color: $gray;
+                            font-weight: 300;
+                            strong{
+                                color: $dark;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+                hr{
+                    background: $gray_borders;
+                    opacity: 1;
+                    margin: 36px 0;
+                }
+                .after-title{
+                    height: 2px;
+                    width: 90px;
+                    margin: 27px auto 27px 0;
+                }
+                .description{
+                    strong{
+                        color: $dark;
+                        font-size: 18px;
+                        line-height: 1.75;
+                        font-weight: 600;
+                    }
+                    p{
+                        color: $gray;
+                        font-size: 18px;
+                        line-height: 1.75;
+                        font-weight: 300;
+                    }
+                }
+                .global-information{
+                    h3{
+                        font-size: 24px;
+                        margin-bottom: 0;
+                    }
+                    .description{
+                        margin-bottom: 36px;
+                        a{
+                            color: $yellow;
+                            text-decoration: none;
+                        }
+                    }
+                    .shares-contain{
+                        display: flex;
+                        align-items: center;
+                        .label{
+                            display: block;
+                            width: 108px;
+                            font-size: 14px;
+                            color: $dark;
+                            font-weight: 600;
+                        }
+                    }
+                }
+                .gray-content{
+                    background: #f7f7f7;
+                    padding: 36px;
+                    .content-yellow{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: $yellow;
+                        color: $white;
+                        padding: 18px;
+                        font-size: 18px;
+                        border-radius: 4px;
+                        font-weight: 500;
+                        line-height: 1.75;
+                        text-align: center;
+                    }
+                    h3{
+                        font-size: 24px;
+                        margin-bottom: 0;
+                    }
+                    .property-details{
+                        ul{
+                            list-style: none;
+                            display: flex;
+                            flex-direction: column;
+                            gap:2px;
+                            padding: 0;
+                            margin: 0 0 36px 0;
+                            li{
+                                font-size: 18px;
+                                font-weight: 400;
+                                color: $gray;
+                                line-height: 1.75;
+                                strong{
+                                    color: $dark;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+                    .property-characteristics{
+                        ul{
+                            list-style: none;
+                            display: flex;
+                            flex-direction: column;
+                            gap:4px;
+                            padding: 36px 0 0 0;
+                            margin: 0 0 36px 0;
+                            li{
+                                display: flex;
+                                align-items: center;
+                                gap: 27px;
+                                line-height: 1.5em;
+                                svg{
+                                    color: $yellow;
+                                    width: 1.28571429em;
+                                    line-height: 2.5em;
+                                }
+                                strong{
+                                    color: $dark;
+                                    font-size: 17px;
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.wyw-text-content-partial-fa9603 {
+    background: $white;
+    padding: 90px 0 36px 0;
+    h2{
+        font-family: $raleway;
+        color: $dark;
+        font-weight: 800;
+        font-size: 40px;
+        margin-bottom: 27px;
+        text-align: center;
+        @media(max-width:768px){
+            font-size: 26.666666666667px;
+        }
+    }
+    .text-yellow{
+        color: $yellow;
+    }
+    .description{
+        margin-top: 36px;
+        font-family: $raleway;
+        font-size: 18px;
+        line-height: 1.75;
+        color: $gray;
+        text-align: left;
+    }
+}

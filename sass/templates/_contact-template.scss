@@ -1,0 +1,156 @@
+#contact-template-0389cb {
+    .contact{
+        .contact-contain{
+            padding: 54px 48px;
+            @media(max-width:768px){
+                padding: 54px 36px;
+            }
+            background: $gray_light;
+            h2{
+                padding-top: 36px;
+                margin-top: 36px;
+                margin-bottom: 20px;
+                font-weight: 800;
+                color: $dark_oscuro;
+                font-size: 24px;
+                line-height: 1.2;
+            }
+            hr{
+                background: $yellow;
+                margin-top: 54px;
+                margin-bottom: 6px;
+                opacity: 1;
+            }
+            .contact-list{
+                padding: 0;
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 9px;
+                li{
+                    padding: 0 4px;
+                    a{
+                        display: flex;
+                        align-items: center;
+                        gap: 31px;
+                        text-decoration: none;
+                        color: $dark;
+                        font-size: 20px;
+                        line-height: 1.5em;
+                        font-weight: 500;
+                        svg{
+                            font-size: 12px;
+                            line-height: 2.5em;
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+            .gray{
+                background: $gray_borders;
+                opacity: .4;
+                margin-top: 70px;
+            }
+            .social-network{
+                display: flex;
+                align-items: center;
+                list-style: none;
+                padding: 36px 0 0 0;
+                li{
+                    padding: 0 9px;
+                    a{
+                        display: flex;
+                        width: 58px;
+                        height: 58px;
+                        background: $yellow;
+                        border-radius: 50%;
+                        color: $white;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 2em;
+                    }
+                }
+            }
+        }
+        .form-contain{
+            background: $gray_borders;
+            padding: 54px 50px 54px 36px;
+            @media(max-width:768px){
+                padding: 54px 36px;
+            }
+            h2{
+                padding-top: 36px;
+                margin-top: 36px;
+                margin-bottom: 20px;
+                font-weight: 800;
+                color: $dark_oscuro;
+                font-size: 24px;
+                line-height: 1.2;
+            }
+            hr{
+                background: $yellow;
+                margin-top: 54px;
+                opacity: 1;
+            }
+            .form{
+                margin-top: 36px;
+                .nf-form-fields-required{
+                    font-size: 14px;
+                    color: $gray;
+                    font-weight: 400;
+                }
+                .nf-field-label{
+                    color: $gray;
+                    margin-bottom: 10px;
+                    font-weight: 700;
+                    font-size: 18px;
+                }
+                .nf-field-element{
+                    width: 100%;
+                    input, textarea{
+                        background-color: #ffffff;
+                        box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.025);
+                        padding: 10px 15px 10px 15px;
+                        font-size: 14px;
+                        line-height: initial;
+                        border-radius: 2px;
+                        font-weight: normal;
+                        border: 1px solid transparent;
+                        color: inherit;
+                        outline: none;
+                        font-weight: 400;
+                    }
+                }
+                .ninja-forms-field.nf-element{
+                    background-color: #ffffff;
+                    box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.025);
+                    padding: 10px 15px 10px 15px;
+                    font-size: 14px;
+                    line-height: initial;
+                    border-radius: 2px;
+                    font-weight: normal;
+                    border: 1px solid transparent;
+                    color: inherit;
+                    color: $gray;
+                    outline: none;
+                    font-weight: 400;
+                }
+                .ninja-forms-field.nf-element{
+                    font-weight: 600;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    transition: color 200ms ease-in-out, background-color 200ms ease-in-out, border-color 200ms ease-in-out;
+                    font-size: 12px;
+                    padding: 13px 31px 13px 31px;
+                    text-align: center;
+                    background-image: none;
+                    border-radius: 2px;
+                    outline: none;
+                    white-space: nowrap;
+                    -webkit-text-stroke: 0px;
+                    -webkit-font-smoothing: antialiased;
+                }
+            }
+        }
+    }
+}

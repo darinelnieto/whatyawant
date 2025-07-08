@@ -1,0 +1,152 @@
+.feature-properties-partial-e14bf5 {
+    background: $gray_light;
+    padding: 72px 0;
+    .container{
+        max-width: 100%;
+    }
+    .title-content{
+        hr{
+            margin: 27px auto;
+            border-color: $gray_borders;
+            width: 90px;
+            border-top: 2px solid;
+            opacity: .1;
+        }
+        h2{
+            font-size: 40px;
+            color: $dark;
+            font-family: $raleway;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .description{
+            font-family: $raleway;
+            font-weight: 400;
+            font-size: 18px;
+            color: $gray;
+        }
+    }
+    #filters{
+        margin-bottom: 3rem;
+        h3{
+            text-decoration: underline;
+            color: $dark;
+            font-family: $raleway;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.75;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+            gap: 7px;
+            li{
+                a{
+                    display: inline-flex;
+                    flex-wrap: nowrap;
+                    align-items: end;
+                    gap: 6px;
+                    align-items: flex-end;
+                    text-decoration: none;
+                    font-size: 14px;
+                    color: $gray;
+                    font-family: $raleway;
+                    font-weight: 400;
+                    .checkbox{
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                        background: $white;
+                        border: 1px solid $gray_borders;
+                        box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.025);
+                        border-radius: 2px;
+                        position: relative;
+                        &::before{
+                            display: none;
+                            content: '';
+                            width: 15px;
+                            height: 7px;
+                            border-left: 3px solid $gray;
+                            border-bottom: 3px solid $gray;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%) rotate(-45deg);
+                            transition: 2s;
+                        }
+                    }
+                }
+                .active{
+                    .checkbox{
+                        &::before{
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #contenedor-posts{
+        max-width: 1190px;
+        margin: 0 auto;
+        .card-propertie{
+            position: relative;
+            border-color: #eaeaea;
+            border-radius: 4px;
+            max-width: 250px;
+            margin: 0 auto;
+            .image-contain{
+                display: block;
+                width: 100%;
+                height: 100%;
+                max-height: 170px;
+                overflow: hidden;
+                position: relative;
+                color: $dark;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    transition: .2s;
+                }
+                .availability{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background: $yellow;
+                    padding: 4px 10px;
+                    border-radius: 4px;
+                }
+                &:hover{
+                    img{
+                        filter: brightness(60%);
+                    }
+                }
+            }
+            .card-body{
+                padding: 15px 1.5rem;
+                h3{
+                    font-weight: 800;
+                    margin-bottom: 10px;
+                    min-height: 40px;
+                    font-size: 20px;
+                    font-family: $raleway;
+                    color: $dark;
+                    text-align: center;
+                }
+                .caracteristic{
+                    .p-content-card-product{
+                        margin-bottom: 0;
+                        font-family: $raleway;
+                        font-size: 14px;
+                        color: $black;
+                    }
+                }
+            }
+        }
+    }
+}

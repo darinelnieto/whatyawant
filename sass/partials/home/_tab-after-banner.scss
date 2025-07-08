@@ -1,0 +1,24 @@
+.tab-after-banner-partial-42a2b3 {
+    background: $white;
+    padding: 54px 0;
+    .icon{
+        width: 70px;
+        max-width: fit-content;
+        height: auto;
+        margin: 0 auto;
+    }
+    h3{
+        font-family: $raleway;
+        font-weight: 600;
+        color: $dark;
+        font-size: 24px;
+    }
+    .description{
+        font-size:18px;
+        font-family: $raleway;
+        font-weight: 400;
+        line-height: 1.75;
+        margin: 18px 0 0;
+        color: $gray;
+    }
+}
