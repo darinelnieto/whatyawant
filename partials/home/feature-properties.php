@@ -59,7 +59,8 @@ $rooms = get_terms(['taxonomy' => 'number_of_rooms']);
     </div>
 </section>
 <script>
-    const rout = _dittoURL_ + "/dev/wp-json/relatos/list";
+    const rout = _dittoURL_ + "/wp-json/relatos/list";
+    console.log(rout);
     <?php if($properties['select_category']): ?>
         const category = '<?= $properties['select_category']->slug; ?>';
     <?php else: ?>
