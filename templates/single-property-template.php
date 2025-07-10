@@ -10,6 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 get_header();
 ?>
+<script>
+    $('.header-content-partial-1bbfc7').removeClass('not-fixed');
+</script>
 <main id="single-property-template-f796d2">
     <?php get_template_part('partials/single-portfolio/single-banner'); ?>
     <?php get_template_part('partials/single-portfolio/portfolio-body'); ?>

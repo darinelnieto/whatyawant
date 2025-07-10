@@ -41,7 +41,7 @@ if($images):
         </div>
     </div>
     <div class="container">
-        <div class="row justify-content-center" id="gallery__grid">
+        <div id="gallery__grid">
             <?php if($images){ ?>
                 <?php $i = 0; 
                     if(count($images) > $i){ ?>
@@ -56,11 +56,11 @@ if($images):
                                 ?>
                             <?php 
                                 if($image_url['height'] > $image_url['width']){ ?>
-                                    <div class="col-6 col-md-4 col-lg-3 mb-4 vertical-img-content">
+                                    <div class="vertical-img-content">
                                         <img class="el_image gallery-item" onclick="openModal();currentSlide(<?php echo $i ?>)" src="<?= $base64; ?>" alt="<?= $image_url['title']; ?>">
                                     </div>
                             <?php }else{ ?>
-                                    <div class="col-6 col-md-4 col-lg-3 mb-4">
+                                    <div class="gallery-item-contain">
                                         <img class="el_image gallery-item" onclick="openModal();currentSlide(<?php echo $i ?>)" src="<?= $base64; ?>" alt="<?= $image_url['title']; ?>">
                                     </div>
                             <?php } ?>
