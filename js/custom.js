@@ -27,7 +27,7 @@ if($(window).width() < 768){
 var availability = [];
 var rooms = [];
 let currentPage = 1;
-const postsPerPage = 2;
+const postsPerPage = 16;
 function get_portfolio(){
     list_availability();
     list_rooms();
