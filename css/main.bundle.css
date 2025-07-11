@@ -1615,6 +1615,7 @@ footer .copyright .p-copy h6 a {
   font-weight: 300;
   font-size: 14px;
   border-radius: 50%;
+  box-shadow: none;
 }
 .feature-properties-partial-e14bf5 #contenedor-posts .pagination ul li a:hover {
   color: #f2cf46;
