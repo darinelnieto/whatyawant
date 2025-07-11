@@ -26,30 +26,44 @@ if($(window).width() < 768){
 /*======= End header scroll =======*/
 var availability = [];
 var rooms = [];
+let currentPage = 1;
+const postsPerPage = 2;
 function get_portfolio(){
     list_availability();
     list_rooms();
-    if(availability.length == 0 ){
-        availability = '';
-    }
-    if(rooms.length == 0 ){
-        rooms = '';
-    }
+
     $.ajax({
         type:'GET',
         url: rout,
-        data:{
+        data: {
             category: category,
-            availability: availability,
-            rooms: rooms
+            availability: availability.length ? availability : '',
+            rooms: rooms.length ? rooms : '',
+            page: currentPage,
+            posts_per_page: postsPerPage
         }
     }).done((resp)=>{
-        console.log(resp);
         card_content(resp);
-    }).catch(()=>{
-
+        render_pagination(resp.total_pages, resp.current_page);
+    }).fail(()=>{
+        $('#contenedor-posts').html('<p>Error cargando propiedades.</p>');
     });
 }
+/*========= Paginador =========*/
+function render_pagination(totalPages, currentPage) {
+    let paginationHTML = `<div class="pagination mt-4"><ul class="pagination-list">`;
+
+    for (let i = 1; i <= totalPages; i++) {
+        paginationHTML += `<li class="${i === currentPage ? 'active' : ''}">
+            <a href="#" class="page-link" data-page="${i}">${i}</a>
+        </li>`;
+    }
+
+    paginationHTML += `</ul></div>`;
+
+    $('#contenedor-posts').append(`<div class="col-12 text-center">${paginationHTML}</div>`);
+}
+
 function list_availability(){
     availability = [];
     var list = $('.availability .active');
@@ -88,13 +102,24 @@ function card_content(resp){
     }
 }
 /*=========== availability ==========*/
+$(document).on('click', '.page-link', function(e){
+    e.preventDefault();
+    const selectedPage = $(this).data('page');
+    if (selectedPage !== currentPage) {
+        currentPage = selectedPage;
+        get_portfolio();
+    }
+});
+/*=============  Resetear página si cambias filtros =============*/
 $('.availability').on('click', 'a', function(e){
     $(this).toggleClass('active');
+    currentPage = 1;
     get_portfolio();
     e.preventDefault();
 });
 $('.rooms').on('click', 'a', function(e){
     $(this).toggleClass('active');
+    currentPage = 1;
     get_portfolio();
     e.preventDefault();
 });

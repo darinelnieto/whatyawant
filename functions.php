@@ -219,35 +219,46 @@ add_action('rest_api_init', function () {
 });
 //
 function portfolio_list_handler($request){
+  $paged = isset($request['page']) ? intval($request['page']) : 1;
+  $per_page = isset($request['posts_per_page']) ? intval($request['posts_per_page']) : 8;
+
   $query = [
     'post_type' => 'portfolio',
     'post_status' => 'publish',
     'portfolio_cat' => $request['category'],
     'availability_cat' => $request['availability'],
     'number_of_rooms' => $request['rooms'],
-    'posts_per_page' => -1,
+    'posts_per_page' => $per_page,
+    'paged' => $paged,
     'orderby' => 'title',
     'order' => 'ASC',
   ];
+
   $news = new WP_Query($query);
   $relatos = array();
+
   if($news->have_posts()){
     while ($news->have_posts()) {
       $news->the_post();
       array_push($relatos, array(
-        'title'         => get_the_title(get_the_id()),
-        "thumbnail"     => get_the_post_thumbnail_url(get_the_id()),
-        "permalink"     => get_permalink(get_the_id()),
-        "valor" => get_field('valor', get_the_id()),
-        "ubicacion" => get_field('ubicacion', get_the_id()),
-        "habitaciones" => get_the_terms(get_the_id(), 'number_of_rooms')[0]->name,
-        "disponibilidad" => get_the_terms(get_the_id(), 'availability_cat')[0]->name,
+        'title' => get_the_title(),
+        'thumbnail' => get_the_post_thumbnail_url(),
+        'permalink' => get_permalink(),
+        'valor' => get_field('valor'),
+        'ubicacion' => get_field('ubicacion'),
+        'habitaciones' => get_the_terms(get_the_ID(), 'number_of_rooms')[0]->name ?? '',
+        'disponibilidad' => get_the_terms(get_the_ID(), 'availability_cat')[0]->name ?? '',
       ));
     }
     wp_reset_postdata();
   }
-  $relatos = ['portfolio' => $relatos];
-  return $relatos;
+
+  return [
+    'portfolio' => $relatos,
+    'total_pages' => $news->max_num_pages,
+    'current_page' => $paged,
+    'total_posts' => $news->found_posts,
+  ];
 }
 /*============ Play list ============*/
 function create_playlist() {

@@ -148,5 +148,42 @@
                 }
             }
         }
+        .pagination{
+            ul{
+                display: flex;
+                justify-content: center;
+                padding: 0;
+                margin: 0;
+                gap: 20px;
+                width: 100%;
+                list-style: none;
+                li{
+                    a{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: 1px solid;
+                        width: 30px;
+                        height: 30px;
+                        color: $dark;
+                        border-color: transparent;
+                        background: transparent;
+                        font-family: $raleway;
+                        font-weight: 300;
+                        font-size: 14px;
+                        border-radius: 50%;
+                        &:hover{
+                            color: $yellow;
+                        }
+                    }
+                }
+                .active{
+                    a{
+                        color: $yellow;
+                        border-color: $yellow;
+                    }
+                }
+            }
+        }
     }
 }
