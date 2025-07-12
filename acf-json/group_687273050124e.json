@@ -1,37 +1,11 @@
 {
-    "key": "group_686211d28849e",
-    "title": "generic banner",
+    "key": "group_687273050124e",
+    "title": "Reviews page",
     "fields": [
         {
-            "key": "field_686211d2e1db9",
-            "label": "Main image",
-            "name": "main_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "allow_in_bindings": 0,
-            "preview_size": "medium"
-        },
-        {
-            "key": "field_6862120ee1dba",
-            "label": "Title page",
-            "name": "title_page",
+            "key": "field_68727305e5084",
+            "label": "Reviews",
+            "name": "reviews",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -50,9 +24,30 @@
             "append": ""
         },
         {
-            "key": "field_686215c7e1dbb",
-            "label": "Text after title",
-            "name": "text_after_title",
+            "key": "field_687275fa0f4bc",
+            "label": "Title form",
+            "name": "title_form",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6872735ce5085",
+            "label": "Shortcode form",
+            "name": "shortcode_form",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -76,41 +71,6 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/whatyawant-template.php"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "templates\/blog-page-template.php"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "templates\/properites-template.php"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "templates\/contact-template.php"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "templates\/rent-my-property-template.php"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
                 "value": "templates\/reviews-page-template.php"
             }
         ]
@@ -124,5 +84,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1752330730
+    "modified": 1752331804
 }

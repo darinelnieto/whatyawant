@@ -1,0 +1,103 @@
+#reviews-page-template-1dd224 {
+    .reviews{
+        background: $white;
+        padding: 72px 0;
+        .reviews-content{
+            .glsr-review{
+                margin-bottom: 48px;
+                gap: 0;
+                .glsr-review-title{
+                    margin-bottom: 16px;
+                    h3{
+                        font-size: 24px;
+                        color: $gray;
+                        line-height: 1.2;
+                        font-weight: 600;
+                    }
+                }
+                .glsr-review-rating, .glsr-review-date{
+                    margin-right: .5em;
+                    margin-bottom: 16px;
+                    span{
+                        font-size: 14px;
+                        color: $gray;
+                        font-weight: 300;
+                    }
+                }
+                .glsr-review-content p{
+                    white-space: pre-line;
+                    margin: 0 0 16px;
+                    line-height: 1.5;
+                    font-size: 18px;
+                    color: $gray;
+                    font-weight: 400;
+                }
+                .glsr-review-author{
+                    display: flex;
+                    gap: 0;
+                    &::before{
+                        content: "\2014";
+                        color: $gray;
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                    span{
+                        font-size: 14px;
+                        color: $gray;
+                        font-weight: 300;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+    }
+    .form{
+        .title{
+            h2{
+                font-weight: 800;
+                font-size: 40px;
+                color: $dark;
+                margin-bottom: 0;
+            }
+            hr{
+                height: 2px;
+                width: 90px;
+                margin: 36px auto 36px 0;
+                background: $gray_borders;
+                opacity: 1;
+            }
+        }
+        label{
+            font-size: 18px;
+            color: $gray;
+            line-height: 1.75;
+            font-weight: 400;
+        }
+        form.glsr-form .glsr-star-rating--stars[class*=" s"]>span{
+            width: 24px;
+            height: 24px;
+        }
+        .glsr-default button.glsr-button{
+            white-space: nowrap;
+            background-color: #f7f7f7;
+            border-radius: 4px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 200ms ease-in-out, background-color 200ms ease-in-out, border-color 200ms ease-in-out;
+            font-size: 12px;
+            text-align: center;
+            vertical-align: middle;
+            background-image: none;
+            border-radius: 2px;
+            outline: none;
+            width: auto;
+            box-shadow: none;
+            cursor: pointer;
+            -webkit-font-smoothing: antialiased;
+            padding: 13px 31px 13px 31px;
+            border: 1px solid $gray;
+            color: $gray;
+        }
+    }
+}

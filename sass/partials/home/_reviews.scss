@@ -1,3 +1,54 @@
 .reviews-partial-19bdc6 {
     padding: 72px 0;
+    text-align: center;
+    .glsr-review{
+        margin-bottom: 48px;
+        justify-content: center;
+        .glsr-review-title{
+            margin-bottom: 16px;
+            h3{
+                font-size: 24px;
+                color: $gray;
+                line-height: 1.2;
+                font-weight: 600;
+            }
+        }
+        .glsr-review-rating, .glsr-review-date{
+            margin-right: .5em;
+            margin-bottom: 16px;
+            display: inline-block;
+            text-align: center;
+            max-width: fit-content;
+            span{
+                font-size: 14px;
+                color: $gray;
+                font-weight: 300;
+            }
+        }
+        .glsr-review-content p{
+            white-space: pre-line;
+            margin: 0 0 16px;
+            line-height: 1.5;
+            font-size: 18px;
+            color: $gray;
+            text-align: center;
+            font-weight: 400;
+        }
+        .glsr-review-author{
+            display: flex;
+            gap: 0;
+            &::before{
+                content: "\2014";
+                color: $gray;
+                font-size: 14px;
+                font-weight: 400;
+            }
+            span{
+                font-size: 14px;
+                color: $gray;
+                font-weight: 300;
+                box-sizing: border-box;
+            }
+        }
+    }
 }

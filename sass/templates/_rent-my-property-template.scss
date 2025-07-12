@@ -1,0 +1,92 @@
+#rent-my-property-template-894c6c {
+    .form-content{
+        padding: 36px;
+        background: $white;
+        h1{
+            padding-bottom: 20px;
+            font-size: 40px;
+            color: $dark;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: 2px;
+        }
+        h3{
+            margin-top: 36px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: $yellow;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: 2px;
+        }
+        .form{
+            padding-top: 36px;
+            .nf-form-fields-required{
+                display: none;
+            }
+            .nf-field-label{
+                display: none;
+            }
+            .nf-field-element{
+                input{
+                    width: 100%;
+                    height: auto;
+                    font-size: 18px;
+                    background-color:$white;
+                    border: 1px solid $gray_borders;
+                    box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.025);
+                    padding: 10px 15px 10px 15px;
+                    display: block;
+                    line-height: initial;
+                    border-radius: 2px;
+                    font-weight: normal;
+                    color: $gray;
+                    outline: none;
+                    &:focus{
+                        border-color: $yellow;
+                    }
+                }
+                select{
+                    width: 100%;
+                    height: auto;
+                    font-size: 14px;
+                    background-color:$white;
+                    border: 1px solid $gray_borders;
+                    box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.025);
+                    padding: 10px 15px 10px 15px;
+                    display: block;
+                    line-height: initial;
+                    border-radius: 2px;
+                    font-weight: normal;
+                    color: $gray;
+                    outline: none;
+                    &:focus{
+                        border-color: $yellow;
+                    }
+                }
+            }
+            #nf-field-17-wrap{
+                border: 1px solid $yellow;
+                padding: 5px;
+                input[type="submit"]{
+                    background: $yellow;
+                    border-color: $yellow;
+                    color: $white;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    padding: 13px 31px 13px 31px;
+                    border-radius: 2px;
+                    outline: none;
+                    font-weight: bold;
+                }
+            }
+            .nf-error.listimage-wrap .nf-field-element ul, .nf-error .ninja-forms-field {
+                border: 1px solid #e80000;
+            }
+            .nf-error-msg, .ninja-forms-req-symbol{
+                font-size: 14px;
+                font-weight: 300;
+            }
+        }
+    }
+}
