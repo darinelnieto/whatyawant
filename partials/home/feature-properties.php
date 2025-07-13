@@ -23,9 +23,9 @@ $rooms = get_terms(['taxonomy' => 'number_of_rooms']);
                 </div>
             <?php endif; ?>
             <div class="col-12 col-lg-10">
-                <div class="row" id="filters">
+                <div class="row justify-content-between" id="filters">
                     <?php if($availability): ?>
-                        <div class="col-6 filter">
+                        <div class="col-6 col-md-4 filter">
                             <h3>Disponibilidad</h3>
                             <ul class="availability">
                                 <?php foreach($availability as $li): ?>
@@ -38,7 +38,7 @@ $rooms = get_terms(['taxonomy' => 'number_of_rooms']);
                             </ul>
                         </div>
                     <?php endif; if($rooms): ?>
-                        <div class="col-6 filter">
+                        <div class="col-6 col-md-7 filter">
                             <h3>Habitaciones</h3>
                             <ul class="rooms">
                                 <?php foreach($rooms as $li): ?>
