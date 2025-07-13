@@ -21,7 +21,7 @@ $share_post = get_field('share_post', 'option');
             <div class="col-12 col-md-6 mb-4 mb-md-0">
                 <div class="prices-content">
                     <?php if(get_field('valor')): ?>
-                        <h2 class="price">$<?= get_field('valor'); ?></h2>
+                        <h2 class="price"><?php if(get_field('valor') !== 'Según Temporada'): ?>$<?php endif; echo get_field('valor'); ?></h2>
                     <?php endif; if($information['price_text']): ?>
                         <p class="text-price"><?= $information['price_text']; ?></p>
                     <?php endif; if($information['deposit_value'] || $information['cleaning_fee']): ?>
