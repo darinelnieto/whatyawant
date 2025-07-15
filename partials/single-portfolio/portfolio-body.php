@@ -94,7 +94,7 @@ $share_post = get_field('share_post', 'option');
                                 <?php foreach($property_characteristics as $item): ?>
                                     <li>
                                         <i class="fa-solid fa-check"></i>
-                                        <strong><?= $item['item']; ?> </strong>
+                                        <strong><?= $item['item']->post_title; ?></strong>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>

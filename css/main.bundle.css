@@ -1958,11 +1958,11 @@ footer .copyright .p-copy h6 a {
 #rent-my-property-template-894c6c .form-content .form .nf-field-element select:focus {
   border-color: #f2cf46;
 }
-#rent-my-property-template-894c6c .form-content .form #nf-field-17-wrap {
+#rent-my-property-template-894c6c .form-content .form .submit-wrap .nf-field-element {
   border: 1px solid #f2cf46;
   padding: 5px;
 }
-#rent-my-property-template-894c6c .form-content .form #nf-field-17-wrap input[type=submit] {
+#rent-my-property-template-894c6c .form-content .form .submit-wrap .nf-field-element input[type=submit] {
   background: #f2cf46;
   border-color: #f2cf46;
   color: #ffffff;

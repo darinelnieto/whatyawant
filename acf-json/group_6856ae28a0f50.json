@@ -275,7 +275,7 @@
                     "label": "Item",
                     "name": "item",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "post_object",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -284,12 +284,20 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "maxlength": "",
+                    "post_type": [
+                        "characteristics"
+                    ],
+                    "post_status": [
+                        "publish"
+                    ],
+                    "taxonomy": "",
+                    "return_format": "object",
+                    "multiple": 0,
+                    "allow_null": 0,
                     "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
+                    "bidirectional": 0,
+                    "ui": 1,
+                    "bidirectional_target": [],
                     "parent_repeater": "field_6867236a43323"
                 }
             ]
@@ -334,9 +342,9 @@
             "delay": 0
         },
         {
-            "key": "field_6868016767a30",
-            "label": "Gallery",
-            "name": "gallery",
+            "key": "field_616387d41b086",
+            "label": "Galeria",
+            "name": "galeria",
             "aria-label": "",
             "type": "gallery",
             "instructions": "",
@@ -348,6 +356,8 @@
                 "id": ""
             },
             "return_format": "array",
+            "preview_size": "medium",
+            "insert": "append",
             "library": "all",
             "min": "",
             "max": "",
@@ -357,9 +367,7 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": "",
-            "insert": "append",
-            "preview_size": "medium"
+            "mime_types": ""
         },
         {
             "key": "field_686aa8d020d8e",
@@ -419,5 +427,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1751820695
+    "modified": 1752463609
 }

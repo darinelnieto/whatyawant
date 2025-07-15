@@ -119,6 +119,22 @@ if (function_exists('acf_add_options_page')){
 		'parent_slug'   => 'theme-settings',
 	));
 }
+/*========= Caracteristicas =========*/
+add_theme_support('post-thumbnails');
+add_post_type_support( 'characteristics', 'thumbnail' );
+function caracteristicas_post(){
+  /*====== Argument post type =====*/
+  $args = array(
+    'public' => true,
+    'has_archive' => true,
+    'label'  => 'Caracteristicas',
+    'menu_icon' => 'dashicons-editor-ul',
+    'supports' => ['title', 'editor', 'thumbnail'],
+  );
+  /*============ Register post type ============*/
+  register_post_type('characteristics', $args);
+}
+add_action('init', 'caracteristicas_post', 4);
 /*================ Portfolio ================*/
 add_theme_support('post-thumbnails');
 add_post_type_support( 'portfolio', 'thumbnail' );
