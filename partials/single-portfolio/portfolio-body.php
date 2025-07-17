@@ -24,7 +24,15 @@ $share_post = get_field('share_post', 'option');
                         <h2 class="price"><?php if(get_field('valor') !== 'Según Temporada'): ?>$<?php endif; echo get_field('valor'); ?></h2>
                     <?php endif; if($information['price_text']): ?>
                         <p class="text-price"><?= $information['price_text']; ?></p>
-                    <?php endif; if($information['deposit_value'] || $information['cleaning_fee']): ?>
+                    <?php endif; if($information['enable_price_list']): ?>
+                        <ul class="complement-prices">
+                            <?php foreach($information['manual_price_list'] as $item): ?>
+                                <li class="complement-item">
+                                    <strong><?= $item['name']; ?></strong> <?= $item['value']; ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php else: ?>
                         <ul class="complement-prices">
                             <li class="complement-item">
                                 <strong>Depósito de seguridad:</strong> <?= $information['deposit_value']; ?>

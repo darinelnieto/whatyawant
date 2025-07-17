@@ -120,6 +120,7 @@
                     background: $yellow;
                     padding: 4px 10px;
                     border-radius: 4px;
+                    font-size: 12px;
                 }
                 &:hover{
                     img{
@@ -136,7 +137,6 @@
                     font-size: 20px;
                     font-family: $raleway;
                     color: $dark;
-                    text-align: center;
                 }
                 .caracteristic{
                     .p-content-card-product{

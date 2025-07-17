@@ -804,8 +804,15 @@ footer .copyright .p-copy h6 a {
   width: 90px;
   margin: 27px auto 27px 0;
 }
+.portfolio-body-partial-59cf78 .container .row .col-12 .description .category_details_wrapper {
+  font-size: 14px;
+  color: #777777;
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 27px;
+}
 .portfolio-body-partial-59cf78 .container .row .col-12 .description strong {
-  color: #303133;
+  color: #777777;
   font-size: 18px;
   line-height: 1.75;
   font-weight: 600;
@@ -837,6 +844,9 @@ footer .copyright .p-copy h6 a {
   font-size: 14px;
   color: #303133;
   font-weight: 600;
+}
+.portfolio-body-partial-59cf78 .container .row .col-12 .global-information .shares-contain #st-1.st-hidden {
+  opacity: 1;
 }
 .portfolio-body-partial-59cf78 .container .row .col-12 .gray-content {
   background: #f7f7f7;
@@ -881,7 +891,7 @@ footer .copyright .p-copy h6 a {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 10px;
   padding: 36px 0 0 0;
   margin: 0 0 36px 0;
 }
@@ -1622,6 +1632,7 @@ footer .copyright .p-copy h6 a {
   background: #f2cf46;
   padding: 4px 10px;
   border-radius: 4px;
+  font-size: 12px;
 }
 .feature-properties-partial-e14bf5 #contenedor-posts .card-propertie .image-contain:hover img {
   filter: brightness(60%);
@@ -1636,7 +1647,6 @@ footer .copyright .p-copy h6 a {
   font-size: 20px;
   font-family: "Raleway", sans-serif;
   color: #303133;
-  text-align: center;
 }
 .feature-properties-partial-e14bf5 #contenedor-posts .card-propertie .card-body .caracteristic .p-content-card-product {
   margin-bottom: 0;

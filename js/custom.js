@@ -84,7 +84,7 @@ function card_content(resp){
         $('#contenedor-posts').append(`
             <div class="col-12 col-md-4 col-lg-3 mb-5">
                 <div class="card card-propertie">
-                    <a href="${item.permalink}" class="image-contain">
+                    <a href="${item.permalink}" target="_blank" class="image-contain">
                         <img src="${item.thumbnail}" alt="${item.title}">
                         <span class="availability">${item.disponibilidad}</span>
                     </a>

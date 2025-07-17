@@ -25,7 +25,7 @@ $rooms = get_terms(['taxonomy' => 'number_of_rooms']);
             <div class="col-12 col-lg-10">
                 <div class="row justify-content-between" id="filters">
                     <?php if($availability): ?>
-                        <div class="col-6 col-md-4 filter">
+                        <div class="col-6 col-md-5 filter">
                             <h3>Disponibilidad</h3>
                             <ul class="availability">
                                 <?php foreach($availability as $li): ?>
@@ -45,7 +45,7 @@ $rooms = get_terms(['taxonomy' => 'number_of_rooms']);
                                     <li class="item">
                                         <a href="<?= $li->slug; ?>">
                                             <span class="checkbox"></span>
-                                            <span class="text"><?= $li->name; ?> <?php if($li->name === '1'): ?>Habitación<?php else: ?>Habitaciones<?php endif; ?></span>
+                                            <span class="text"><?php if($li->name !== '5'){ echo $li->name; }else{ echo '+ '; } ?> <?php if($li->name === '1'): ?>Habitación<?php else: ?>Habitaciones<?php endif; ?></span>
                                         </a>
                                     </li>
                                 <?php endforeach; ?>

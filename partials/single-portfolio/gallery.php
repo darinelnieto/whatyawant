@@ -8,7 +8,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
-$images = get_field('gallery');
+$images = get_field('galeria');
 $marca = get_template_directory_uri().'/images/logo-marca-de-agua-grid.png';
 $marca_popup = get_template_directory_uri().'/images/logo-marca-de-agua-popup.png';
 $path = $marca;
