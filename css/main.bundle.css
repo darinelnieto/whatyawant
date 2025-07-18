@@ -675,18 +675,26 @@ footer .copyright .p-copy h6 a {
 .gallery-partial-b8b620 #gallery__grid .gallery-item-contain {
   cursor: pointer;
   max-width: 33%;
+  max-height: 250px;
+  overflow: hidden;
 }
 .gallery-partial-b8b620 #gallery__grid .gallery-item-contain img {
-  max-width: 100%;
+  width: 100%;
   padding: 0.5em;
+  height: 100%;
+  object-fit: cover;
 }
 .gallery-partial-b8b620 #gallery__grid .vertical-img-content {
   width: 15.5%;
   cursor: pointer;
+  max-height: 250px;
+  overflow: hidden;
 }
 .gallery-partial-b8b620 #gallery__grid .vertical-img-content img {
-  max-width: 100%;
+  width: 100%;
   padding: 0.5em;
+  height: 100%;
+  object-fit: cover;
 }
 .gallery-partial-b8b620 .modal-gallery {
   display: none;
