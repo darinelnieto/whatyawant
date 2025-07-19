@@ -18,7 +18,7 @@ $share_post = get_field('share_post', 'option');
 <section class="portfolio-body-partial-59cf78">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6 mb-4 mb-md-0">
+            <div class="col-12 col-md-6 col-lg-5 mb-4 mb-md-0">
                 <div class="prices-content">
                     <?php if(get_field('valor')): ?>
                         <h2 class="price"><?php if(get_field('valor') !== 'Según Temporada'): ?>$<?php endif; echo get_field('valor'); ?></h2>
@@ -76,7 +76,7 @@ $share_post = get_field('share_post', 'option');
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 col-lg-5">
                 <div class="gray-content">
                     <div class="content-yellow">
                         <span><?= $information['messagebox_yellow']; ?></span>

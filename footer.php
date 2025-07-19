@@ -11,9 +11,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 $left_content = get_field('left_content', 'option');
 $content_center = get_field('content_center', 'option');
 $right_content = get_field('right_content', 'option');
+$contact = get_field('whatsapp_content', 'option');
+$cta_img = $contact['whatsapp_image'];
 ?>
 
 <footer id="footer-wrapper">
+	<?php if($contact['whatsapp_image']): ?>
+		<a href="https://wa.me/57<?= $contact['whatsapp_number']; ?>?text=<?php echo $contact['message_whatsapp']; ?>" class="whatsapp-fixed" target="_blanck">
+			<img src="<?= $cta_img['url']; ?>" alt="<?= $cta_img['title']; ?>" width="<?= $cta_img['width']; ?>" height="<?= $cta_img['height']; ?>">
+		</a>
+	<?php endif; ?>
+	<div class="scroll-top">
+		<a href="#">
+			<i class="fa fa-angle-up fa-stack"></i>
+		</a>
+	</div>
     <div class="top-content">
 		<div class="container">
 			<div class="row">

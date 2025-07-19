@@ -8,6 +8,15 @@ $(window).scroll(function(){
     }else{
         $('.header-content-partial-1bbfc7').removeClass('sticky');
     }
+    if($(window).scrollTop() > 1000){
+        $('.scroll-top').addClass('active');
+    }else{
+        $('.scroll-top').removeClass('active');
+    }
+});
+$('.scroll-top a').on('click', function(e){
+    e.preventDefault();
+    $(window).scrollTop(0);
 });
 if($(window).width() < 768){
     var status_menu = false;
@@ -20,6 +29,28 @@ if($(window).width() < 768){
             $(this).removeClass('active');
             $('.menu-contain').removeClass('active');
             status_menu = false;
+        }
+    });
+    var dispon = false;
+    var habita = false;
+    $('#filters').on('click', 'h3', function(){
+        var name = $(this).text();
+        if(name === 'Disponibilidad'){
+            if(dispon === false){
+                $(this).parent().addClass('active');
+                dispon = true;
+            }else{
+                $(this).parent().removeClass('active');
+                dispon = false;
+            }
+        }else{
+            if(habita === false){
+                $(this).parent().addClass('active');
+                habita = true;
+            }else{
+                $(this).parent().removeClass('active');
+                habita = false;
+            }
         }
     });
 }
@@ -89,7 +120,9 @@ function card_content(resp){
                         <span class="availability">${item.disponibilidad}</span>
                     </a>
                     <div class="card-body">
-                        <h3>${item.title}</h3>
+                        <a href="${item.permalink}" target="_blank">
+                            <h3>${item.title}</h3>
+                        </a>
                         <div class="caracteristic">
                             <p class="p-content-card-product">COP $${item.valor}</p>
                             <p class="p-content-card-product">${item.ubicacion}</p>
@@ -105,9 +138,13 @@ function card_content(resp){
 $(document).on('click', '.page-link', function(e){
     e.preventDefault();
     const selectedPage = $(this).data('page');
+    var scrollT = $('.migas').offset().top;
     if (selectedPage !== currentPage) {
         currentPage = selectedPage;
         get_portfolio();
+        $('html, body').animate({
+            scrollTop: scrollT
+        }, 100); 
     }
 });
 /*=============  Resetear página si cambias filtros =============*/

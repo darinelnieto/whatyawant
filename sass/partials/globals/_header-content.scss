@@ -4,7 +4,7 @@
     left: 0;
     top: 0;
     z-index: 11;
-    padding: 27px 0;
+    padding: 18px 0;
     background: transparent;
     border-bottom: 1px solid;
     border-color: rgba(255,255,255,0.15);
@@ -17,8 +17,10 @@
         .logo-contain{
             a{
                 img{
-                    width: 89%;
-                    height: 60px;
+                    width: 100%;
+                    max-width: 193px;
+                    height: auto;
+                    transform: translateX(-24px);
                     @media(max-width:768px){
                         width: 100%;
                         height: auto;

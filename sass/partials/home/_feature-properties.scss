@@ -28,64 +28,98 @@
     }
     #filters{
         margin-bottom: 3rem;
-        h3{
-            text-decoration: underline;
-            color: $dark;
-            font-family: $raleway;
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 1.75;
-        }
-        ul{
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            padding: 0;
-            margin: 0;
-            gap: 7px;
-            li{
-                a{
-                    display: inline-flex;
-                    flex-wrap: nowrap;
-                    align-items: end;
-                    gap: 6px;
-                    align-items: flex-end;
-                    text-decoration: none;
-                    font-size: 14px;
-                    color: $gray;
-                    font-family: $raleway;
-                    font-weight: 400;
-                    .checkbox{
-                        display: block;
-                        width: 20px;
-                        height: 20px;
-                        background: $white;
-                        border: 1px solid $gray_borders;
-                        box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.025);
-                        border-radius: 2px;
-                        position: relative;
-                        &::before{
-                            display: none;
-                            content: '';
-                            width: 15px;
-                            height: 7px;
-                            border-left: 3px solid $gray;
-                            border-bottom: 3px solid $gray;
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%) rotate(-45deg);
-                            transition: 2s;
-                        }
-                    }
+        .filter{
+            h3{
+                text-decoration: underline;
+                color: $dark_oscuro;
+                font-family: $raleway;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 1.75;
+                position: relative;
+                &::after{
+                    display: none;
+                    content: '';
+                    width: 11px;
+                    height: 11px;
+                    border-left: 1px solid;
+                    border-bottom: 1px solid;
+                    transform: rotate(-45deg);
+                    right: 8px;
+                    top: 8px;
+                    position: absolute;
+                    border-color: $dark;
+                    transition: .1s;
                 }
-                .active{
-                    .checkbox{
-                        &::before{
+            }
+            ul{
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                padding: 0;
+                margin: 0;
+                gap: 7px;
+                overflow: hidden;
+                transition: .2s;
+                li{
+                    a{
+                        display: inline-flex;
+                        flex-wrap: nowrap;
+                        align-items: end;
+                        gap: 6px;
+                        align-items: flex-end;
+                        text-decoration: none;
+                        font-size: 14px;
+                        color: $gray;
+                        font-family: $raleway;
+                        font-weight: 400;
+                        .checkbox{
                             display: block;
+                            width: 20px;
+                            height: 20px;
+                            background: $white;
+                            border: 1px solid $gray_borders;
+                            box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.025);
+                            border-radius: 2px;
+                            position: relative;
+                            &::before{
+                                display: none;
+                                content: '';
+                                width: 15px;
+                                height: 7px;
+                                border-left: 3px solid $gray;
+                                border-bottom: 3px solid $gray;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%) rotate(-45deg);
+                                transition: 2s;
+                            }
+                        }
+                    }
+                    .active{
+                        .checkbox{
+                            &::before{
+                                display: block;
+                            }
                         }
                     }
                 }
+            }
+            @media(max-width:768px){
+                h3{
+                    &::after{
+                        display: block;
+                    }
+                }
+                ul{
+                    height: 0;
+                }
+            }
+        }
+        .filter.active{
+            ul{
+                height: auto;
             }
         }
     }
@@ -130,13 +164,16 @@
             }
             .card-body{
                 padding: 15px 1.5rem;
-                h3{
-                    font-weight: 800;
-                    margin-bottom: 10px;
-                    min-height: 40px;
-                    font-size: 20px;
-                    font-family: $raleway;
-                    color: $dark;
+                a{
+                    text-decoration: none;
+                    h3{
+                        font-weight: 700;
+                        margin-bottom: 10px;
+                        min-height: 40px;
+                        font-size: 20px;
+                        font-family: $raleway;
+                        color: $dark_oscuro;
+                    }
                 }
                 .caracteristic{
                     .p-content-card-product{
@@ -186,5 +223,55 @@
                 }
             }
         }
+    }
+}
+#ditto-page{
+    padding-bottom: 36px;
+    .migas{
+        background: $gray_light;
+        padding: 36px 0;
+        border-bottom: 1px solid #eaeaea;
+        p{
+            margin: 0;
+            font-family: $raleway;
+            color: #999999;
+            font-size: 17px;
+            font-weight: 600;
+            @media(max-width: 768px){
+                text-align: center;
+            }
+        }
+        .breadcrumb{
+            margin-bottom: 0;
+            display: flex;
+            justify-content: right;
+            gap: 5px;
+            a, span{
+                font-family: $raleway;
+                text-decoration: none;
+                font-weight: 500;
+                line-height: 1.75;
+                color: #999999;
+                font-size: 13px;
+                transition: .2s;
+            }
+            a:hover{
+                color: $yellow;
+            }
+            @media(max-width: 768px){
+                justify-content: center;
+            }
+        }
+    }
+    h1{
+        color: $yellow;
+        font-size: 40px;
+        line-height: 1.2;
+        margin: 36px 0 63px 0;
+        font-weight: 600;
+    }
+    .uncode_text_column{
+        color: $gray;
+        font-size: 18px;
     }
 }
