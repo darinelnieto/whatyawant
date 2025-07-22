@@ -147,8 +147,6 @@ function watermarkImageModal(elemImage, text) {
 let elImg = document.querySelectorAll('.el_image');
 let imgModal = document.querySelectorAll('.img-modal-slider');
 for (var i = 0, len = elImg.length; i < len; i++) {
-    console.log(i); // index
-    console.log(elImg[i]); // object
     watermarkImage(elImg[i]);
     watermarkImageModal(imgModal[i]);
 }
