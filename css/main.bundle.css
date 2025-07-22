@@ -1044,6 +1044,11 @@ footer .copyright .p-copy h6 a {
   color: #303133;
   font-weight: 600;
 }
+@media (max-width: 768px) {
+  .portfolio-body-partial-59cf78 .container .row .col-12 .prices-content .complement-prices li strong {
+    font-weight: 500;
+  }
+}
 .portfolio-body-partial-59cf78 .container .row .col-12 hr {
   background: #eaeaea;
   opacity: 1;
