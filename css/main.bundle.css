@@ -1818,6 +1818,8 @@ footer .copyright .p-copy h6 a {
   border-radius: 4px;
   max-width: 250px;
   margin: 0 auto;
+  border-radius: 5px;
+  overflow: hidden;
 }
 .feature-properties-partial-e14bf5 #contenedor-posts .card-propertie .image-contain {
   display: block;
