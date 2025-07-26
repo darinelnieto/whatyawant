@@ -19,4 +19,3 @@ get_header();
     <?php get_template_part('partials/home/instagram'); ?>
 </main>
 <?php get_footer(); ?>
-                    
