@@ -1,4 +1,10 @@
+/*!*********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./sass/main.scss ***!
+  \*********************************************************************************************************/
 @import url(//fonts.googleapis.com/css?family=Poppins%3A300%2Cregular%2C500%2C600%2C700%7CDroid+Serif%3Aregular%2Citalic%2C700%2C700italic%7CDosis%3A200%2C300%2Cregular%2C500%2C600%2C700%2C800%7CPlayfair+Display%3Aregular%2Citalic%2C700%2C700italic%2C900%2C900italic%7COswald%3A300%2Cregular%2C700%7CRoboto%3A100%2C100italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C700%2C700italic%2C900%2C900italic%7CNunito%3A200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C900%2C900italic%7CRaleway%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=devanagari%2Clatin-ext%2Clatin%2Ccyrillic%2Cvietnamese%2Cgreek%2Ccyrillic-ext%2Cgreek-ext);
+/*!*************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./sass/main.scss (1) ***!
+  \*************************************************************************************************************/
 @charset "UTF-8";
 html {
   width: 100%;
@@ -480,26 +486,31 @@ footer .copyright .p-copy h6 a {
   }
   .header-content-partial-1bbfc7 .container .menu-contain ul {
     display: block;
+    text-align: center;
   }
   .header-content-partial-1bbfc7 .container .menu-contain ul li a {
-    font-size: 13px;
+    font-size: 4.5vw;
+    padding: 5px 0;
+    line-height: 2;
   }
   .header-content-partial-1bbfc7 .container .menu-contain ul li a:hover {
     color: #f2cf46;
   }
   .header-content-partial-1bbfc7 .container .menu-contain ul .with-sub-menu ul {
-    display: block;
     position: relative;
     top: 0;
     transform: none;
     background: transparent;
     box-shadow: none;
     padding: 0;
+    text-align: center;
+    width: 100%;
   }
   .header-content-partial-1bbfc7 .container .menu-contain ul .with-sub-menu ul li a {
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 3.8vw;
     font-weight: 500;
+    line-height: 1em;
   }
 }
 .header-content-partial-1bbfc7 .container .menu-contain.active {
@@ -671,22 +682,28 @@ footer .copyright .p-copy h6 a {
   font-weight: 900;
   line-height: 1.2;
 }
-.contact-partial-3294a6 .col-12 .description {
-  font-size: 18px;
-  line-height: 1.75;
-  font-weight: 400;
-  color: #777777;
+@media (max-width: 768px) {
+  .contact-partial-3294a6 .col-12 h2 {
+    font-size: 26.6666666667px;
+  }
 }
-.contact-partial-3294a6 .col-12 .description a {
+.contact-partial-3294a6 .col-12 .description p {
+  margin-bottom: 0;
+}
+.contact-partial-3294a6 .col-12 .description p a {
   color: #000000;
   text-decoration: none;
+  font-size: 18px;
+  line-height: 1.75;
+  font-weight: 300;
 }
-.contact-partial-3294a6 .col-12 .description a:hover {
+.contact-partial-3294a6 .col-12 .description p a:hover {
   color: #f7f7f7;
 }
 .contact-partial-3294a6 .col-12 img {
   width: 70px;
   height: auto;
+  margin-top: 2rem;
 }
 
 .map-partial-fee1c0 iframe {
@@ -780,6 +797,11 @@ footer .copyright .p-copy h6 a {
   max-height: 250px;
   overflow: hidden;
 }
+@media (max-width: 768px) {
+  .gallery-partial-b8b620 #gallery__grid .gallery-item-contain {
+    max-width: 50%;
+  }
+}
 .gallery-partial-b8b620 #gallery__grid .gallery-item-contain img {
   width: 100%;
   padding: 0.5em;
@@ -800,7 +822,7 @@ footer .copyright .p-copy h6 a {
 }
 @media (max-width: 768px) {
   .gallery-partial-b8b620 #gallery__grid .vertical-img-content {
-    width: 24.5%;
+    width: 32.5%;
   }
 }
 .gallery-partial-b8b620 .modal-gallery {
@@ -832,6 +854,11 @@ footer .copyright .p-copy h6 a {
   transform: translate(-50%, -50%);
   width: fit-content;
   z-index: 1;
+}
+@media (max-width: 768px) {
+  .gallery-partial-b8b620 .modal-gallery .content {
+    width: 75%;
+  }
 }
 .gallery-partial-b8b620 .modal-gallery .content .item-slide img {
   width: 100%;
