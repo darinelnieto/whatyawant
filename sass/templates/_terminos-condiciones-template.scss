@@ -1,0 +1,60 @@
+#terminos-condiciones-template-a22b43 {
+    background: $white;
+    .migas{
+        background: $gray_light;
+        padding: 36px;
+        border-bottom: 1px solid #eaeaea;
+        p{
+            margin: 0;
+            font-family: $raleway;
+            color: #999999;
+            font-size: 17px;
+            font-weight: 500;
+            @media(max-width: 768px){
+                text-align: center;
+            }
+        }
+        .breadcrumb{
+            margin-bottom: 0;
+            display: flex;
+            justify-content: right;
+            gap: 5px;
+            a, span{
+                font-family: $raleway;
+                text-decoration: none;
+                font-weight: 500;
+                line-height: 1.75;
+                color: #999999;
+                font-size: 13px;
+                transition: .2s;
+            }
+            a:hover{
+                color: $yellow;
+            }
+            @media(max-width: 768px){
+                justify-content: center;
+            }
+        }
+    }
+    section{
+        padding: 36px 24px;
+        h1{
+            margin-bottom: 20px;
+            color: $yellow;
+            font-size: 40px;
+            line-height: 1.2;
+            @media(max-width:768px){
+                font-size: 26.666666666667px;
+            }
+        }
+        .content{
+            margin-top: 41px;
+            p{
+                font-size: 18px;
+                line-height: 1.75;
+                color: $gray;
+                font-weight: 300;
+            }
+        }
+    }
+}

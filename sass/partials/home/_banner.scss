@@ -29,6 +29,7 @@
                 color: $white;
                 font-family: $raleway;
                 font-weight: 600;
+                margin-top: 55px;
                 a{
                     color:$white;
                     text-decoration: none;
@@ -40,10 +41,13 @@
             }
             @media(max-width:768px){
                 h2{
-                    font-size: 35px;
+                    font-size: 26.666666666667px;
                 }    
                 .description{
                     font-size: 18px;
+                    a{
+                        color: $yellow;
+                    }
                 }    
             }
         }

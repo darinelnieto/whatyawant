@@ -216,11 +216,12 @@ footer .blog-list li a .text {
   display: flex;
   flex-direction: column;
   gap: 9px;
+  max-width: 318px;
 }
 footer .blog-list li a .text h3 {
   margin: 0;
   font-family: "Raleway";
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   font-size: 20px;
 }
@@ -228,7 +229,7 @@ footer .blog-list li a .text p {
   margin: 0;
   font-family: "Raleway";
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 400;
 }
 footer .blog-list li a:hover {
   color: #f2cf46;
@@ -1346,7 +1347,7 @@ footer .copyright .p-copy h6 a {
 }
 .generic-banner-partial-ef644c .migas {
   background: #f7f7f7;
-  padding: 36px 0;
+  padding: 36px 34px;
   border-bottom: 1px solid #eaeaea;
 }
 .generic-banner-partial-ef644c .migas p {
@@ -1354,7 +1355,7 @@ footer .copyright .p-copy h6 a {
   font-family: "Raleway";
   color: #999999;
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 500;
 }
 @media (max-width: 768px) {
   .generic-banner-partial-ef644c .migas p {
@@ -2013,6 +2014,7 @@ footer .copyright .p-copy h6 a {
   color: #ffffff;
   font-family: "Raleway";
   font-weight: 600;
+  margin-top: 55px;
 }
 .banner-partial-0d4ebd .item .tecxt-contain .description a {
   color: #ffffff;
@@ -2024,10 +2026,13 @@ footer .copyright .p-copy h6 a {
 }
 @media (max-width: 768px) {
   .banner-partial-0d4ebd .item .tecxt-contain h2 {
-    font-size: 35px;
+    font-size: 26.6666666667px;
   }
   .banner-partial-0d4ebd .item .tecxt-contain .description {
     font-size: 18px;
+  }
+  .banner-partial-0d4ebd .item .tecxt-contain .description a {
+    color: #f2cf46;
   }
 }
 .banner-partial-0d4ebd .owl-nav {
@@ -2072,6 +2077,73 @@ footer .copyright .p-copy h6 a {
 .banner-partial-0d4ebd .owl-dots .active {
   opacity: 1;
   transform: scale(1.2);
+}
+
+#terminos-condiciones-template-a22b43 {
+  background: #ffffff;
+}
+#terminos-condiciones-template-a22b43 .migas {
+  background: #f7f7f7;
+  padding: 36px;
+  border-bottom: 1px solid #eaeaea;
+}
+#terminos-condiciones-template-a22b43 .migas p {
+  margin: 0;
+  font-family: "Raleway";
+  color: #999999;
+  font-size: 17px;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  #terminos-condiciones-template-a22b43 .migas p {
+    text-align: center;
+  }
+}
+#terminos-condiciones-template-a22b43 .migas .breadcrumb {
+  margin-bottom: 0;
+  display: flex;
+  justify-content: right;
+  gap: 5px;
+}
+#terminos-condiciones-template-a22b43 .migas .breadcrumb a, #terminos-condiciones-template-a22b43 .migas .breadcrumb span {
+  font-family: "Raleway";
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #999999;
+  font-size: 13px;
+  transition: 0.2s;
+}
+#terminos-condiciones-template-a22b43 .migas .breadcrumb a:hover {
+  color: #f2cf46;
+}
+@media (max-width: 768px) {
+  #terminos-condiciones-template-a22b43 .migas .breadcrumb {
+    justify-content: center;
+  }
+}
+#terminos-condiciones-template-a22b43 section {
+  padding: 36px 24px;
+}
+#terminos-condiciones-template-a22b43 section h1 {
+  margin-bottom: 20px;
+  color: #f2cf46;
+  font-size: 40px;
+  line-height: 1.2;
+}
+@media (max-width: 768px) {
+  #terminos-condiciones-template-a22b43 section h1 {
+    font-size: 26.6666666667px;
+  }
+}
+#terminos-condiciones-template-a22b43 section .content {
+  margin-top: 41px;
+}
+#terminos-condiciones-template-a22b43 section .content p {
+  font-size: 18px;
+  line-height: 1.75;
+  color: #777777;
+  font-weight: 300;
 }
 
 #reviews-page-template-1dd224 .reviews {
@@ -2414,4 +2486,60 @@ footer .copyright .p-copy h6 a {
   white-space: nowrap;
   -webkit-text-stroke: 0px;
   -webkit-font-smoothing: antialiased;
+}
+#contact-template-0389cb .rent-my-property {
+  background: #f2cf46;
+  padding: 54px 0;
+}
+#contact-template-0389cb .rent-my-property h2 {
+  color: #ffffff;
+  font-family: "Raleway";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 0;
+  padding-bottom: 21px;
+  letter-spacing: 4px;
+}
+#contact-template-0389cb .rent-my-property a {
+  display: flex;
+  margin: 36px auto 0 auto;
+  color: #f2cf46;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-family: "Raleway";
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-size: 12px;
+  transition: 0.2s;
+  position: relative;
+}
+#contact-template-0389cb .rent-my-property a::before {
+  content: "";
+  width: 108%;
+  height: 130%;
+  border: 1px solid #ffffff;
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+}
+#contact-template-0389cb .rent-my-property p {
+  font-family: "Raleway";
+  font-weight: 400;
+  color: #3f4451;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  margin: 18px 0 0;
+  margin-bottom: 0;
+  margin-top: 34px;
 }

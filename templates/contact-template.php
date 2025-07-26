@@ -12,6 +12,7 @@ get_header();
 $contact = get_field('contact_group');
 $social_networks = get_field('content_center', 'option');
 $form = get_field('form');
+$content = get_field('i_want_to_rent_my_property');
 ?>
 <main id="contact-template-0389cb">
     <?php get_template_part('partials/globals/generic-banner'); ?>
@@ -53,7 +54,23 @@ $form = get_field('form');
             </div>
         </div>
     </section>
-    <?php get_template_part('partials/home/rent-my-property'); ?>
+    <section class="rent-my-property">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <?php if($content['title']): ?>
+                        <h2><?= $content['title']; ?></h2>
+                    <?php endif; if($content['cta_link']): ?>
+                        <a href="<?= $content['cta_link']; ?>">
+                            <span><?= $content['cta_text']; ?></span>
+                        </a>
+                    <?php endif; if($content['description']): ?>
+                        <p><?= $content['description']; ?></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 <?php get_footer(); ?>
                     

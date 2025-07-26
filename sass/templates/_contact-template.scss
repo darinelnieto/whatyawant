@@ -153,4 +153,60 @@
             }
         }
     }
+    .rent-my-property{
+        background: $yellow;
+        padding: 54px 0;
+        h2{
+            color: $white;
+            font-family: $raleway;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 1.2;
+            margin-bottom: 0;
+            padding-bottom: 21px;
+            letter-spacing: 4px;
+        }
+        a{
+            display: flex;
+            margin: 36px auto 0 auto;
+            color: $yellow;
+            background: $white;
+            border: 1px solid $white;
+            width: fit-content;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
+            font-family: $raleway;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-size: 12px;
+            transition: .2s;
+            position: relative;
+            &::before{
+                content: '';
+                width: 108%;
+                height: 130%;
+                border: 1px solid $white;
+                background: transparent;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 6px;
+            }
+        }
+        p{
+            font-family: $raleway;
+            font-weight: 400;
+            color: $dark_oscuro;
+            font-size: 18px;
+            line-height: 1.2;
+            letter-spacing: 2px;
+            margin: 18px 0 0;
+            margin-bottom: 0;
+            margin-top: 34px;
+        }
+    }
 }

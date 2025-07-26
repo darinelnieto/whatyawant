@@ -46,14 +46,14 @@
     /*=========== Migas de pan ===========*/
     .migas{
         background: $gray_light;
-        padding: 36px 0;
+        padding: 36px 34px;
         border-bottom: 1px solid #eaeaea;
         p{
             margin: 0;
             font-family: $raleway;
             color: #999999;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 500;
             @media(max-width: 768px){
                 text-align: center;
             }

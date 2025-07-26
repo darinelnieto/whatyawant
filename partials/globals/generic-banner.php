@@ -26,14 +26,12 @@ $description = get_field('text_after_title');
         </div>
     <?php endif; ?>
     <div class="migas">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-12 col-md-3">
-                    <p class="name-page"><?= the_title(); ?></p>
-                </div>
-                <div class="col-12 col-md-4">
-                    <?= mi_breadcrumb(); ?>
-                </div>
+        <div class="row justify-content-between">
+            <div class="col-12 col-md-3">
+                <p class="name-page"><?= the_title(); ?></p>
+            </div>
+            <div class="col-12 col-md-4">
+                <?= mi_breadcrumb(); ?>
             </div>
         </div>
     </div>
