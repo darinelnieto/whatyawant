@@ -24,10 +24,12 @@ if($(window).width() < 768){
         if(status_menu === false){
             $(this).addClass('active');
             $('.menu-contain').addClass('active');
+            $('.header-content-partial-1bbfc7').addClass('sticky');
             status_menu = true;
         }else{
             $(this).removeClass('active');
             $('.menu-contain').removeClass('active');
+            $('.header-content-partial-1bbfc7').removeClass('sticky');
             status_menu = false;
         }
     });

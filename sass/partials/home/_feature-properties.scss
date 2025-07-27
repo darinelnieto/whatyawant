@@ -5,6 +5,7 @@
         max-width: 100%;
     }
     .title-content{
+        padding: 0 36px;
         hr{
             margin: 27px auto;
             border-color: $gray_borders;
@@ -18,12 +19,19 @@
             font-family: $raleway;
             font-weight: 800;
             line-height: 1.2;
+            @media(max-width:768px){
+                font-size: 26.666666666667px;
+            }
         }
         .description{
             font-family: $raleway;
-            font-weight: 400;
+            font-weight: 300;
             font-size: 18px;
             color: $gray;
+            margin-top: 18px;
+            @media(max-width:768px){
+                padding: 0 10px;
+            }
         }
     }
     #filters{

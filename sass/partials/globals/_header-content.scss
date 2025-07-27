@@ -92,6 +92,9 @@
                         bottom: 0;
                         background: transparent;
                         transform: translateY(92%);
+                        @media(max-width:768px){
+                            display: none;
+                        }
                     }
                     ul{
                         flex-direction: column;
