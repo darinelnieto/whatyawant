@@ -183,6 +183,9 @@
                         font-size: 20px;
                         font-family: $raleway;
                         color: $dark_oscuro;
+                        @media(max-width:768px){
+                            text-align: center;
+                        }
                     }
                 }
                 .caracteristic{

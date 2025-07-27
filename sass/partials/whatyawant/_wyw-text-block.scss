@@ -1,12 +1,15 @@
 .wyw-text-block-partial-10273f {
-    padding: 72px 0;
+    padding: 72px 24px;
     background: $white;
     .text-block{
         font-family: $raleway;
+        ul{
+            padding: 0;
+        }
         p, li{
             font-weight: 400;
             font-size: 18px;
-            color: $gray;
+            color: $black;
         }
     }
 }

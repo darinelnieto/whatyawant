@@ -1,6 +1,6 @@
 .wyw-text-content-partial-fa9603 {
     background: $white;
-    padding: 90px 0 36px 0;
+    padding: 90px 24px 36px 24px;
     h2{
         font-family: $raleway;
         color: $dark;
@@ -10,6 +10,7 @@
         text-align: center;
         @media(max-width:768px){
             font-size: 26.666666666667px;
+            padding: 0 24px;
         }
     }
     .text-yellow{

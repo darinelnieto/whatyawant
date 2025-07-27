@@ -4,7 +4,7 @@
     width: 100%;
     overflow: hidden;
     @media(max-width:768px){
-        height: 320.594px;
+        height: 371px;
     }
     img{
         width: 100%;
@@ -19,6 +19,7 @@
         transform: translate(-50%, -50%);
         text-align: center;
         width: 100%;
+        padding: 0 36px;
         h2{
             font-family: $raleway;
             font-size: 120px;
@@ -27,6 +28,7 @@
             margin-bottom: 20px;
             @media (max-width:768px) {
                 font-size: 35px;
+                margin-bottom: 0;
             }
         }
         p{
@@ -35,7 +37,11 @@
             color: $white;
             font-family: $raleway;
             font-size: 24px;
-            font-weight: 600;
+            font-weight: 500;
+            line-height: 1.2;
+            @media(max-width:768px){
+                margin: 57px 0;
+            }
         }
         a{
             display: flex;
@@ -55,6 +61,12 @@
             font-size: 12px;
             transition: .2s;
             position: relative;
+            @media(max-width:768px){
+                max-width: 227px;
+                font-size: 9px;
+                padding: 7px 31px;
+                font-weight: 500;
+            }
             &::before{
                 content: '';
                 width: 114%;
