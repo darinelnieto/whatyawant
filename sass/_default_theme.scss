@@ -17,7 +17,9 @@ html{
     body{
         overflow-x: hidden;
         .container{
-            max-width: 1343px !important;
+            @media(min-width:1440px){
+                max-width: 1343px !important;
+            }
         }
     }
 }
@@ -284,6 +286,48 @@ footer{
                 a{
                     color: $yellow;
                 }
+            }
+        }
+    }
+}
+/*=========== 404 ==========*/
+#ditto_404_error{
+    padding: 72px 0;
+    background: $yellow;
+    .container{
+        padding-top: 88px;
+        h1{
+            font-family: $poppins;
+            font-weight: 800;
+            font-size: 179px;
+            color: $white;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        h5{
+            font-family: $poppins;
+            font-weight: 700;
+            font-size: 44.8px;
+            color: $white;
+            text-align: center;
+            margin-bottom: 0;
+            position: relative;
+            top: -32px;
+        }
+        p{
+            text-align: center;
+            color: $white;
+            font-size: 18px;
+            line-height: 1.75;
+            font-family: $raleway;
+            max-width: 420px;
+            margin: 0 auto;
+            font-weight: 300;
+            padding: 0 38px;
+        }
+        @media(max-width:768px){
+            h1{
+                font-size: 48px;
             }
         }
     }

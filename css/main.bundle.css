@@ -13,8 +13,10 @@ html {
 html body {
   overflow-x: hidden;
 }
-html body .container {
-  max-width: 1343px !important;
+@media (min-width: 1440px) {
+  html body .container {
+    max-width: 1343px !important;
+  }
 }
 
 /*============ Footer ============*/
@@ -282,6 +284,49 @@ footer .copyright .p-copy h6 {
 }
 footer .copyright .p-copy h6 a {
   color: #f2cf46;
+}
+
+/*=========== 404 ==========*/
+#ditto_404_error {
+  padding: 72px 0;
+  background: #f2cf46;
+}
+#ditto_404_error .container {
+  padding-top: 88px;
+}
+#ditto_404_error .container h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 179px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 0;
+}
+#ditto_404_error .container h5 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 44.8px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 0;
+  position: relative;
+  top: -32px;
+}
+#ditto_404_error .container p {
+  text-align: center;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.75;
+  font-family: "Raleway";
+  max-width: 420px;
+  margin: 0 auto;
+  font-weight: 300;
+  padding: 0 38px;
+}
+@media (max-width: 768px) {
+  #ditto_404_error .container h1 {
+    font-size: 48px;
+  }
 }
 
 .body-post-partial-e7073e {

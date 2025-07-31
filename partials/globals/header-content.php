@@ -31,4 +31,3 @@ $image = get_field('main_image');
         </div>
     </div>
 </section>
-                    
