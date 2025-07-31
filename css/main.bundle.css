@@ -1932,8 +1932,7 @@ footer .copyright .p-copy h6 a {
 .feature-properties-partial-e14bf5 #contenedor-posts .card-propertie .image-contain {
   display: block;
   width: 100%;
-  height: 100%;
-  max-height: 170px;
+  height: 170px;
   overflow: hidden;
   position: relative;
   color: #303133;
