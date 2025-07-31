@@ -32,7 +32,7 @@ if($banner):
 <script>
     $('.banner-partial-0d4ebd').owlCarousel({
         autoplay:true,
-        autoplayTimeout: 7000,
+        autoplayTimeout: 4000,
         loop:true,
         nav:true,
         dots:false,
