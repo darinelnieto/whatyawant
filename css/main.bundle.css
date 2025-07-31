@@ -1082,6 +1082,7 @@ footer .copyright .p-copy h6 a {
 .portfolio-body-partial-59cf78 .container .row .col-12 .gray-content h3 {
   font-size: 24px;
   margin-bottom: 0;
+  font-weight: 600;
 }
 .portfolio-body-partial-59cf78 .container .row .col-12 .gray-content .property-details ul {
   list-style: none;
@@ -1099,7 +1100,7 @@ footer .copyright .p-copy h6 a {
 }
 .portfolio-body-partial-59cf78 .container .row .col-12 .gray-content .property-details ul li strong {
   color: #303133;
-  font-weight: 500;
+  font-weight: 600;
 }
 .portfolio-body-partial-59cf78 .container .row .col-12 .gray-content .property-characteristics ul {
   list-style: none;
@@ -1123,7 +1124,7 @@ footer .copyright .p-copy h6 a {
 .portfolio-body-partial-59cf78 .container .row .col-12 .gray-content .property-characteristics ul li strong {
   color: #303133;
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .single-banner-partial-1c9173 {
@@ -1969,11 +1970,6 @@ footer .copyright .p-copy h6 a {
   font-size: 20px;
   font-family: "Raleway";
   color: #3f4451;
-}
-@media (max-width: 768px) {
-  .feature-properties-partial-e14bf5 #contenedor-posts .card-propertie .card-body a h3 {
-    text-align: center;
-  }
 }
 .feature-properties-partial-e14bf5 #contenedor-posts .card-propertie .card-body .caracteristic .p-content-card-product {
   margin-bottom: 0;
