@@ -45,7 +45,7 @@ if($banner):
             0:{
                 dots:true,
                 nav:false,
-                autoplay:false
+                autoplay:true
             },
             768:{
                 dots:false,
