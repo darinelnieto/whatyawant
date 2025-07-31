@@ -17,7 +17,7 @@ $content = get_field('i_want_to_rent_my_property');
                 <?php if($content['title']): ?>
                     <h2><?= $content['title']; ?></h2>
                 <?php endif; if($content['cta_link']): ?>
-                    <a href="<?= $content['cta_link']; ?>">
+                    <a href="<?= $content['cta_link']; ?>" target="_blank">
                         <span><?= $content['cta_text']; ?></span>
                     </a>
                 <?php endif; if($content['description']): ?>
