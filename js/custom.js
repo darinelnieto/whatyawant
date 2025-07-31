@@ -114,6 +114,16 @@ function list_rooms(){
 function card_content(resp){
     $('#contenedor-posts').html('');
     for(item of resp.portfolio){
+        if(item.disponibilidad === 'Disponible'){
+            item.disponibilidad = item.disponibilidad + ` <i class="fa-regular fa-face-smile"></i>`;
+        }
+        if(item.disponibilidad === 'No Disponible'){
+            item.disponibilidad = item.disponibilidad + ` <i class="fa-regular fa-face-frown"></i>`;
+        }
+        if(item.disponibilidad === 'Proximamente'){
+            item.disponibilidad = item.disponibilidad + ` <i class="fa-regular fa-face-meh"></i>`;
+        }
+        console.log(item.disponibilidad);
         $('#contenedor-posts').append(`
             <div class="col-12 col-md-4 col-lg-3 mb-5">
                 <div class="card card-propertie">

@@ -11,6 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $properties = get_field('properties');
 $availability = get_terms(['taxonomy' => 'availability_cat']);
 $rooms = get_terms(['taxonomy' => 'number_of_rooms']);
+$disponibilidad = ['Disponible', 'No Disponible', 'Proximamente'];
 ?>
 <section class="feature-properties-partial-e14bf5">
     <div class="container">
@@ -24,14 +25,14 @@ $rooms = get_terms(['taxonomy' => 'number_of_rooms']);
             <?php endif; ?>
             <div class="col-12 col-lg-10">
                 <div class="row justify-content-between" id="filters">
-                    <?php if($availability): ?>
+                    <?php if($availability): $key = -1; ?>
                         <div class="col-6 col-md-5 filter">
                             <h3>Disponibilidad</h3>
                             <ul class="availability">
-                                <?php foreach($availability as $li): ?>
+                                <?php foreach($availability as $li): $key++;  ?>
                                     <li class="item">
                                         <a href="<?= $li->slug; ?>">
-                                            <span class="checkbox"></span> <?= $li->name; ?>
+                                            <span class="checkbox"></span> <?= $disponibilidad[$key]; ?>
                                         </a>
                                     </li>
                                 <?php endforeach; ?>
