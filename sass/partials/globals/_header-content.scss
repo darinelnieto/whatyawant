@@ -81,7 +81,7 @@
                         transition: .2s;
                     }
                     a.active {
-                        color: $yellow;
+                        color: $yellow !important;
                     }
                 }
                 .with-sub-menu{
@@ -101,7 +101,7 @@
                         }
                     }
                     a.active {
-                        color: $yellow;
+                        color: $yellow !important;
                     }
                     ul{
                         flex-direction: column;
