@@ -1,5 +1,32 @@
 $(()=>{
     get_portfolio();
+    var cat_status = false;
+    if($(window).width() < 768){
+        // Oculta todos los submenús al cargar
+        $('.with-sub-menu > ul').hide();
+
+        $('.with-sub-menu > a').on('click', function(e){
+            const $submenu = $(this).next('ul');
+            // Si el submenú está oculto, lo abrimos y prevenimos el link
+            if (!$submenu.is(':visible')) {
+                e.preventDefault();
+                $submenu.slideDown(300);
+                // Opcional: cierra otros submenús si quieres solo uno abierto
+                // $('.with-sub-menu > ul').not($submenu).slideUp(300);
+            }
+            // Si ya está visible, permite la navegación (no hacemos preventDefault)
+        });
+    }
+});
+$(function() {
+    var currentUrl = window.location.href.split(/[?#]/)[0]; // Quita query y hash
+
+    $('.menu-contain a').each(function() {
+        var linkUrl = this.href.split(/[?#]/)[0];
+        if (linkUrl === currentUrl) {
+            $(this).addClass('active');
+        }
+    });
 });
 /*========= Header scroll =========*/
 $(window).scroll(function(){

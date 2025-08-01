@@ -27,6 +27,12 @@ html{
 *{
     font-family: $raleway;
 }
+.glsr-default form.glsr-form .glsr-field-toggle input[type=checkbox]:checked+.glsr-toggle-track:before {
+    background: $yellow !important; 
+}
+.glsr-default form.glsr-form .glsr-toggle{
+    align-items: center !important;
+}
 footer{
     position: relative;
     .whatsapp-fixed{

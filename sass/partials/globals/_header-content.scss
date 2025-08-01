@@ -80,9 +80,13 @@
                         font-size: 15px;
                         transition: .2s;
                     }
+                    a.active {
+                        color: $yellow;
+                    }
                 }
                 .with-sub-menu{
                     position: relative;
+                    height: auto;
                     &::after{
                         content: '';
                         display: block;
@@ -96,12 +100,15 @@
                             display: none;
                         }
                     }
+                    a.active {
+                        color: $yellow;
+                    }
                     ul{
                         flex-direction: column;
                         justify-content: left;
                         position: absolute;
                         bottom: 0;
-                        transform: translate(-5%, 129%);
+                        transform: translate(-5%, 124%);
                         gap: 7px;
                         padding: 18px;
                         background: $dark_oscuro;
