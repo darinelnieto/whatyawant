@@ -1886,14 +1886,22 @@ footer .copyright .p-copy h6 a {
 .feature-properties-partial-e14bf5 #filters .filter ul li a {
   display: inline-flex;
   flex-wrap: nowrap;
-  align-items: end;
   gap: 6px;
-  align-items: flex-end;
+  align-items: center;
   text-decoration: none;
   font-size: 14px;
   color: #777777;
   font-family: "Raleway";
   font-weight: 400;
+}
+.feature-properties-partial-e14bf5 #filters .filter ul li a .text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.feature-properties-partial-e14bf5 #filters .filter ul li a .text .more {
+  font-size: 24px;
+  line-height: 0;
 }
 .feature-properties-partial-e14bf5 #filters .filter ul li a .checkbox {
   display: block;

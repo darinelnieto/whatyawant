@@ -46,7 +46,7 @@ $disponibilidad = ['Disponible', 'No Disponible', 'Proximamente'];
                                     <li class="item">
                                         <a href="<?= $li->slug; ?>">
                                             <span class="checkbox"></span>
-                                            <span class="text"><?php if($li->name !== '5'){ echo $li->name; }else{ echo '+ '; } ?> <?php if($li->name === '1'): ?>Habitación<?php else: ?>Habitaciones<?php endif; ?></span>
+                                            <span class="text"><?php if($li->name !== '5'){ echo $li->name; }else{ echo '<span class="more">+</span> '; } ?> <?php if($li->name === '1'): ?>Habitación<?php else: ?>Habitaciones<?php endif; ?></span>
                                         </a>
                                     </li>
                                 <?php endforeach; ?>

@@ -73,14 +73,22 @@
                     a{
                         display: inline-flex;
                         flex-wrap: nowrap;
-                        align-items: end;
                         gap: 6px;
-                        align-items: flex-end;
+                        align-items: center;
                         text-decoration: none;
                         font-size: 14px;
                         color: $gray;
                         font-family: $raleway;
                         font-weight: 400;
+                        .text{
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                            .more{
+                                font-size: 24px;
+                                line-height: 0;
+                            }
+                        }
                         .checkbox{
                             display: block;
                             width: 20px;
