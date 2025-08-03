@@ -386,7 +386,7 @@ footer .copyright .p-copy h6 a {
 }
 @media (max-width: 768px) {
   .gallery-partial-3a2065 #gallery__grid .vertical-img-content {
-    width: 32.5%;
+    width: 50%;
   }
 }
 .gallery-partial-3a2065 .modal-gallery {
@@ -464,10 +464,16 @@ footer .copyright .p-copy h6 a {
   padding: 36px 24px;
 }
 .body-post-partial-e7073e .content p {
+  color: #777777;
   font-size: 18px;
+  line-height: 1.75;
+  font-weight: 300;
 }
 .body-post-partial-e7073e .content ul li {
+  color: #777777;
   font-size: 18px;
+  line-height: 1.75;
+  font-weight: 300;
 }
 .body-post-partial-e7073e .content a {
   color: #f2cf46;
@@ -511,7 +517,7 @@ footer .copyright .p-copy h6 a {
   color: #303133;
   font-weight: 600;
 }
-.body-post-partial-e7073e .shares-contain #st-1.st-hidden {
+.body-post-partial-e7073e .shares-contain #st-1.st-hidden, .body-post-partial-e7073e .shares-contain #st-2.st-hidden {
   opacity: 1;
 }
 

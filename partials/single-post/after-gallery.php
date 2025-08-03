@@ -15,4 +15,3 @@ if($enable_extra_content === true):
     <?= get_field('extra_content'); ?>
 </section>
 <?php endif; ?>
-                    

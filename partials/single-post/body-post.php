@@ -21,7 +21,7 @@ $share_post = get_field('share_post', 'option');
                     <?= the_content(); ?>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 d-none d-md-block">
                 <div class="author">
                     <div class="author-avatar">
                         <?php echo $author_avatar; ?>
@@ -41,6 +41,23 @@ $share_post = get_field('share_post', 'option');
             <div class="col-12">
                 <?php get_template_part('partials/single-post/gallery'); ?>
                 <?php get_template_part('partials/single-post/after-gallery'); ?>
+            </div>
+            <div class="col-12 col-md-4 d-block d-md-none">
+                <div class="author">
+                    <div class="author-avatar">
+                        <?php echo $author_avatar; ?>
+                    </div>
+                    <div class="author-info">
+                        <p><strong><?php echo esc_html($author_name); ?></strong></p>
+                    </div>
+                </div>
+                <hr>
+                <div class="shares-contain">
+                    <span class="label"><?= $share_post['text']; ?></span>
+                    <div class="shares">
+                        <?= do_shortcode($share_post['shortcode']); ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -3,11 +3,17 @@
     padding: 36px 24px;
     .content{
         p{
+            color: #777777;
             font-size: 18px;
+            line-height: 1.75;
+            font-weight: 300;
         }
         ul{
             li{
+                color: #777777;
                 font-size: 18px;
+                line-height: 1.75;
+                font-weight: 300;
             }
         }
         a{
@@ -54,7 +60,7 @@
             color: $dark;
             font-weight: 600;
         }
-        #st-1.st-hidden{
+        #st-1.st-hidden, #st-2.st-hidden{
             opacity: 1;
         }
     }
