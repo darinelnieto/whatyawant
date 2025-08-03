@@ -2,6 +2,8 @@
 
 // Ditto include zone (don't delete anything below)
 // #DittoPartials
+@import "./partials/single-post/after-gallery";
+@import "./partials/single-post/gallery";
 @import "./partials/single-post/body-post";
 @import "./partials/globals/header-content";
 @import "./partials/globals/paghinate-posts";

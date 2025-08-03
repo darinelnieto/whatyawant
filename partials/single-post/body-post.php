@@ -38,6 +38,10 @@ $share_post = get_field('share_post', 'option');
                     </div>
                 </div>
             </div>
+            <div class="col-12">
+                <?php get_template_part('partials/single-post/gallery'); ?>
+                <?php get_template_part('partials/single-post/after-gallery'); ?>
+            </div>
         </div>
     </div>
 </section>
