@@ -2,6 +2,7 @@
     #gallery__grid{
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         .gallery-item-contain{
             cursor:pointer;
             max-width: 33%;

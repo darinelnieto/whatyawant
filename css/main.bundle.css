@@ -353,6 +353,7 @@ footer .copyright .p-copy h6 a {
 .gallery-partial-3a2065 #gallery__grid {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .gallery-partial-3a2065 #gallery__grid .gallery-item-contain {
   cursor: pointer;
