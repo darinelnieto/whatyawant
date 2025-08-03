@@ -339,12 +339,22 @@ footer .copyright .p-copy h6 a {
 
 .after-gallery-partial-89aa98 {
   padding-top: 1rem;
+  color: #777777;
 }
 .after-gallery-partial-89aa98 p {
+  color: #777777;
   font-size: 18px;
+  line-height: 1.75;
+  font-weight: 300;
 }
 .after-gallery-partial-89aa98 ul li {
+  color: #777777;
   font-size: 18px;
+  line-height: 1.75;
+  font-weight: 300;
+}
+.after-gallery-partial-89aa98 strong {
+  font-weight: 700;
 }
 .after-gallery-partial-89aa98 a {
   color: #f2cf46;
@@ -463,6 +473,9 @@ footer .copyright .p-copy h6 a {
   background: #ffffff;
   padding: 36px 24px;
 }
+.body-post-partial-e7073e .content {
+  color: #777777;
+}
 .body-post-partial-e7073e .content p {
   color: #777777;
   font-size: 18px;
@@ -474,6 +487,9 @@ footer .copyright .p-copy h6 a {
   font-size: 18px;
   line-height: 1.75;
   font-weight: 300;
+}
+.body-post-partial-e7073e .content strong {
+  font-weight: 700;
 }
 .body-post-partial-e7073e .content a {
   color: #f2cf46;

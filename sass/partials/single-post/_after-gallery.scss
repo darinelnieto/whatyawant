@@ -1,12 +1,22 @@
 .after-gallery-partial-89aa98 {
     padding-top: 1rem;
+    color: #777777;
     p{
+        color: #777777;
         font-size: 18px;
+        line-height: 1.75;
+        font-weight: 300;
     }
     ul{
         li{
+            color: #777777;
             font-size: 18px;
+            line-height: 1.75;
+            font-weight: 300;
         }
+    }
+    strong{
+        font-weight: 700;
     }
     a{
         color: $yellow;
