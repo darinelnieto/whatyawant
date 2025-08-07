@@ -25,9 +25,25 @@ if ( ! defined( 'ABSPATH' ) ) {
     const _dittoURI_ = "<?= get_template_directory_uri() ?>",
           _dittoURL_ = "<?= get_site_url() ?>";
   </script>
+  <?php 
+    $scripts = get_field('head_scripts', 'option');
+    if($scripts){
+      foreach($scripts as $script) {
+        echo $script['script_add'];
+      }
+    }
+  ?>
 </head>
 
 <body <?php body_class(); ?>>
+<?php 
+  $body_script = get_field('tag_body', 'option');
+  if($body_script) {
+    foreach($body_script as $script) {
+      echo $script['script'];
+    }
+  }
+?>
 <div id="page"> <!-- +Page container -->
 
   <header id="header-wrapper">
