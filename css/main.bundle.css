@@ -2549,7 +2549,7 @@ footer .copyright .p-copy h6 a {
 #rent-my-property-template-894c6c .form-content .form .nf-field-label {
   display: none;
 }
-#rent-my-property-template-894c6c .form-content .form .nf-field-element input {
+#rent-my-property-template-894c6c .form-content .form input {
   width: 100%;
   height: auto;
   font-size: 18px;
@@ -2564,10 +2564,10 @@ footer .copyright .p-copy h6 a {
   color: #777777;
   outline: none;
 }
-#rent-my-property-template-894c6c .form-content .form .nf-field-element input:focus {
+#rent-my-property-template-894c6c .form-content .form input:focus {
   border-color: #f2cf46;
 }
-#rent-my-property-template-894c6c .form-content .form .nf-field-element select {
+#rent-my-property-template-894c6c .form-content .form select {
   width: 100%;
   height: auto;
   font-size: 14px;
@@ -2582,14 +2582,18 @@ footer .copyright .p-copy h6 a {
   color: #777777;
   outline: none;
 }
-#rent-my-property-template-894c6c .form-content .form .nf-field-element select:focus {
+#rent-my-property-template-894c6c .form-content .form select:focus {
   border-color: #f2cf46;
 }
-#rent-my-property-template-894c6c .form-content .form .submit-wrap .nf-field-element {
+#rent-my-property-template-894c6c .form-content .form .submit-wrap {
   border: 1px solid #f2cf46;
   padding: 5px;
+  position: relative;
 }
-#rent-my-property-template-894c6c .form-content .form .submit-wrap .nf-field-element input[type=submit] {
+#rent-my-property-template-894c6c .form-content .form .submit-wrap p {
+  margin-bottom: 0;
+}
+#rent-my-property-template-894c6c .form-content .form .submit-wrap p input[type=submit] {
   background: #f2cf46;
   border-color: #f2cf46;
   color: #ffffff;
@@ -2599,6 +2603,12 @@ footer .copyright .p-copy h6 a {
   border-radius: 2px;
   outline: none;
   font-weight: bold;
+}
+#rent-my-property-template-894c6c .form-content .form .submit-wrap p .wpcf7-spinner {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 #rent-my-property-template-894c6c .form-content .form .nf-error.listimage-wrap .nf-field-element ul, #rent-my-property-template-894c6c .form-content .form .nf-error .ninja-forms-field {
   border: 1px solid #e80000;
@@ -2713,16 +2723,13 @@ footer .copyright .p-copy h6 a {
   color: #777777;
   font-weight: 400;
 }
-#contact-template-0389cb .contact .form-contain .form .nf-field-label {
+#contact-template-0389cb .contact .form-contain .form label {
   color: #777777;
   margin-bottom: 10px;
   font-weight: 700;
   font-size: 18px;
 }
-#contact-template-0389cb .contact .form-contain .form .nf-field-element {
-  width: 100%;
-}
-#contact-template-0389cb .contact .form-contain .form .nf-field-element input, #contact-template-0389cb .contact .form-contain .form .nf-field-element textarea {
+#contact-template-0389cb .contact .form-contain .form input, #contact-template-0389cb .contact .form-contain .form textarea {
   background-color: #ffffff;
   box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.025);
   padding: 10px 15px 10px 15px;
@@ -2734,11 +2741,13 @@ footer .copyright .p-copy h6 a {
   color: inherit;
   outline: none;
   font-weight: 400;
+  width: 100%;
+  text-align: center;
 }
-#contact-template-0389cb .contact .form-contain .form .ninja-forms-field.nf-element {
+#contact-template-0389cb .contact .form-contain .form input[type=submit] {
   background-color: #ffffff;
   box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.025);
-  padding: 10px 15px 10px 15px;
+  padding: 13px 31px 13px 31px;
   font-size: 14px;
   line-height: initial;
   border-radius: 2px;
@@ -2748,6 +2757,7 @@ footer .copyright .p-copy h6 a {
   color: #777777;
   outline: none;
   font-weight: 400;
+  width: max-content;
 }
 #contact-template-0389cb .contact .form-contain .form .ninja-forms-field.nf-element {
   font-weight: 600;

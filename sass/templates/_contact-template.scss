@@ -99,29 +99,13 @@
                     color: $gray;
                     font-weight: 400;
                 }
-                .nf-field-label{
+                label{
                     color: $gray;
                     margin-bottom: 10px;
                     font-weight: 700;
                     font-size: 18px;
                 }
-                .nf-field-element{
-                    width: 100%;
-                    input, textarea{
-                        background-color: #ffffff;
-                        box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.025);
-                        padding: 10px 15px 10px 15px;
-                        font-size: 14px;
-                        line-height: initial;
-                        border-radius: 2px;
-                        font-weight: normal;
-                        border: 1px solid transparent;
-                        color: inherit;
-                        outline: none;
-                        font-weight: 400;
-                    }
-                }
-                .ninja-forms-field.nf-element{
+                input, textarea{
                     background-color: #ffffff;
                     box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.025);
                     padding: 10px 15px 10px 15px;
@@ -131,9 +115,25 @@
                     font-weight: normal;
                     border: 1px solid transparent;
                     color: inherit;
+                    outline: none;
+                    font-weight: 400;
+                    width: 100%;
+                    text-align: center;
+                }
+                input[type="submit"]{
+                    background-color: #ffffff;
+                    box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.025);
+                    padding: 13px 31px 13px 31px;
+                    font-size: 14px;
+                    line-height: initial;
+                    border-radius: 2px;
+                    font-weight: normal;
+                    border: 1px solid transparent;
+                    color: inherit;
                     color: $gray;
                     outline: none;
                     font-weight: 400;
+                    width: max-content;
                 }
                 .ninja-forms-field.nf-element{
                     font-weight: 600;
