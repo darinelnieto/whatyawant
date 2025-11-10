@@ -74,7 +74,7 @@
                         border-color: $yellow;
                         color: $white;
                         letter-spacing: 0.1em;
-                        text-transform: uppercase;
+                        text-transform: uppercase; 
                         padding: 13px 31px 13px 31px;
                         border-radius: 2px;
                         outline: none;
@@ -87,13 +87,6 @@
                         transform: translateY(-50%);
                     }
                 }
-            }
-            .nf-error.listimage-wrap .nf-field-element ul, .nf-error .ninja-forms-field {
-                border: 1px solid #e80000;
-            }
-            .nf-error-msg, .ninja-forms-req-symbol{
-                font-size: 14px;
-                font-weight: 300;
             }
         }
     }

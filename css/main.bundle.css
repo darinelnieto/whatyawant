@@ -2610,13 +2610,6 @@ footer .copyright .p-copy h6 a {
   top: 50%;
   transform: translateY(-50%);
 }
-#rent-my-property-template-894c6c .form-content .form .nf-error.listimage-wrap .nf-field-element ul, #rent-my-property-template-894c6c .form-content .form .nf-error .ninja-forms-field {
-  border: 1px solid #e80000;
-}
-#rent-my-property-template-894c6c .form-content .form .nf-error-msg, #rent-my-property-template-894c6c .form-content .form .ninja-forms-req-symbol {
-  font-size: 14px;
-  font-weight: 300;
-}
 
 #contact-template-0389cb .contact .contact-contain {
   padding: 54px 48px;
