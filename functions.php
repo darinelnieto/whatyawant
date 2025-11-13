@@ -336,3 +336,10 @@ function check_for_svg($data, $file, $filename, $mimes) {
     return $data;
 }
 add_filter('wp_check_filetype_and_ext', 'check_for_svg', 10, 4);
+
+add_filter('wpseo_canonical', function($canonical) {
+  if (is_singular('portfolio')) {
+    return get_permalink();
+  }
+  return $canonical;
+});
