@@ -1,6 +1,12 @@
 .banner-partial-0d4ebd {
-    opacity:0;
-    transition:1s;
+    // Antes de que Owl inicialice se muestra solo el primer slide (LCP sin esperar al JS)
+    &.owl-carousel:not(.owl-loaded){
+        display: block;
+        position: relative;
+        > .item + .item{
+            display: none;
+        }
+    }
     .item{
         height: 80vh;
         overflow: hidden;
@@ -18,7 +24,8 @@
             transform: translate(-50%, -60%);
             width: 100%;
             text-align: center;
-            h2{
+            h1, h2{
+                margin: 0 0 .5rem;
                 color: $white;
                 font-size: 120px;
                 font-family: $raleway;
@@ -40,7 +47,7 @@
                 }
             }
             @media(max-width:768px){
-                h2{
+                h1, h2{
                     font-size: 26.666666666667px;
                 }    
                 .description{
@@ -61,7 +68,7 @@
         transform: translate(-50%, -50%);
         justify-content: space-between;
         button{
-            svg{
+            svg, i{
                 color: $white;
                 transition: .2s;
                 font-size: 22px;
@@ -69,7 +76,7 @@
         }
         .owl-prev{
             &:hover{
-                svg{
+                svg, i{
                     transform: translateX(-5px) scale(0.9);
                     opacity: .6;
                 }
@@ -77,7 +84,7 @@
         }
         .owl-next{
             &:hover{
-                svg{
+                svg, i{
                     transform: translateX(5px) scale(0.9);
                     opacity: .6;
                 }

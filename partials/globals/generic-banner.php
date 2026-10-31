@@ -13,13 +13,19 @@ $h1 = get_field('title_page');
 $description = get_field('text_after_title');
 ?>
 <section class="generic-banner-partial-ef644c">
-    <?php if($image): ?>
+    <?php if(!empty($image)): ?>
         <div class="banner">
-            <img src="<?= $image['url']; ?>" alt="<?= $image['title']; ?>" width="<?= $image['width']; ?>" height="<?= $image['height']; ?>" class="main-image">
+            <?= wp_get_attachment_image($image['ID'] ?? '', 'full', false, array(
+                'class' => 'main-image',
+                'sizes' => '100vw',
+                'fetchpriority' => 'high',
+                'loading' => 'eager',
+                'decoding' => 'async',
+            )) ?>
             <div class="text-content">
-                <?php if($h1): ?>
+                <?php if(!empty($h1)): ?>
                     <h1><?= $h1; ?></h1>
-                <?php endif; if($description): ?>
+                <?php endif; if(!empty($description)): ?>
                     <p><?= $description; ?></p>
                 <?php endif; ?>
             </div>

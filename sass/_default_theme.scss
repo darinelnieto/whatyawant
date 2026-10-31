@@ -1,7 +1,7 @@
-@import url('//fonts.googleapis.com/css?family=Poppins%3A300%2Cregular%2C500%2C600%2C700%7CDroid+Serif%3Aregular%2Citalic%2C700%2C700italic%7CDosis%3A200%2C300%2Cregular%2C500%2C600%2C700%2C800%7CPlayfair+Display%3Aregular%2Citalic%2C700%2C700italic%2C900%2C900italic%7COswald%3A300%2Cregular%2C700%7CRoboto%3A100%2C100italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C700%2C700italic%2C900%2C900italic%7CNunito%3A200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C900%2C900italic%7CRaleway%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=devanagari%2Clatin-ext%2Clatin%2Ccyrillic%2Cvietnamese%2Cgreek%2Ccyrillic-ext%2Cgreek-ext');
+// Fuentes self-hosted vía npm (@fontsource), importadas en js/main.js
 
 $poppins: "Poppins", sans-serif;
-$raleway: "Raleway";
+$raleway: "Raleway Variable", "Raleway", sans-serif;
 
 $white: #ffffff;
 $black:#000000;
@@ -63,7 +63,7 @@ footer{
             height: 2.1em;
             line-height: 2em;
             font-size: 14px;
-            svg{
+            svg, i{
                 width: .6em;
             }
         }
@@ -121,7 +121,7 @@ footer{
                     font-family: $raleway;
                     font-weight: 500;
                     width: fit-content;
-                    svg{
+                    svg, i{
                         font-size: 12px;
                     }
                     &:hover{

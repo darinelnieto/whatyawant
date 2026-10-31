@@ -10,9 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 get_header();
 ?>
-<script>
-    $('.header-content-partial-1bbfc7').removeClass('not-fixed');
-</script>
 <main id="single-blog-template-246072">
     <?php get_template_part('partials/single-post/banner-post'); ?>
     <?php get_template_part('partials/single-post/body-post'); ?>

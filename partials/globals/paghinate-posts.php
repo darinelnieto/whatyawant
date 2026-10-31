@@ -14,14 +14,14 @@ $next_post = get_next_post();
 <section class="paghinate-posts-partial-a025f6">
     <div class="row justify-content-between">
         <div class="col-3 col-md-2 col-lg-1 text-center">
-            <?php if ($prev_post): ?>
+            <?php if (!empty($prev_post)): ?>
                 <a href="<?php echo get_permalink($prev_post->ID); ?>" class="prev">
                     <i class="fa-solid fa-chevron-left"></i> <span>PREV</span>
                 </a>
             <?php endif; ?>
         </div>
         <div class="col-3 col-md-2 col-lg-1 text-center">
-            <?php if ($next_post): ?>
+            <?php if (!empty($next_post)): ?>
                 <a href="<?php echo get_permalink($next_post->ID); ?>" class="next">
                     <span>NEXT</span> <i class="fa-solid fa-chevron-right"></i>
                 </a>

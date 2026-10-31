@@ -1,9 +1,8 @@
-   
 <?php
 /**
- * 
+ *
  * Partial Name: gallery
- * 
+ *
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
@@ -11,184 +10,48 @@ if ( ! defined( 'ABSPATH' ) ) {
 $images = get_field('galeria');
 $marca = get_template_directory_uri().'/images/logo-marca-de-agua-grid.png';
 $marca_popup = get_template_directory_uri().'/images/logo-marca-de-agua-popup.png';
-$path = $marca;
-$type = pathinfo($path, PATHINFO_EXTENSION);
-$data = file_get_contents($path);
-$base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-if($images):
+if(!empty($images)):
+    // Sin srcset: la marca de agua se dibuja en px sobre el tamaño exacto de la imagen
+    add_filter('wp_calculate_image_srcset_meta', '__return_empty_array');
 ?>
-<section class="gallery-partial-b8b620">
-    <div class="modal-gallery">
-        <a href="" class="close-modal">&times;</a>
+<section class="gallery-partial-b8b620 js-gallery" data-watermark-grid="<?= esc_url($marca); ?>" data-watermark-popup="<?= esc_url($marca_popup); ?>">
+    <div class="modal-gallery" role="dialog" aria-modal="true" aria-label="Galería de imágenes" aria-hidden="true">
+        <a href="#" class="close-modal" role="button" aria-label="Cerrar galería">&times;</a>
         <div class="content">
-            <?php if($images){
-                foreach($images as $img){ 
-                    if($img['height'] > $img['width']){ ?>
-                        <div class="item-slide content-img-slider-vertical">
-                            <img src="<?php echo $img['sizes']["medium_large"] ?>" class="img-modal-slider" alt="">
-                        </div>
-                    <?php }else{ ?>
-                        <div class="item-slide">
-                            <img src="<?php echo $img['sizes']["medium_large"] ?>" class="img-modal-slider" alt="">
-                        </div>
-                    <?php }
-                }
-            } ?>
+            <?php foreach($images as $img): ?>
+                <div class="item-slide<?= $img['height'] > $img['width'] ? ' content-img-slider-vertical' : ''; ?>">
+                    <?= wp_get_attachment_image($img['ID'] ?? '', 'medium_large', false, array(
+                        'class' => 'img-modal-slider',
+                        'loading' => 'lazy',
+                        'decoding' => 'async',
+                        'alt' => $img['alt'] ?: $img['title'],
+                    )) ?>
+                </div>
+            <?php endforeach; ?>
         </div>
         <div class="nav-gallery">
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <a href="#" class="prev" role="button" aria-label="Imagen anterior">&#10094;</a>
+            <a href="#" class="next" role="button" aria-label="Imagen siguiente">&#10095;</a>
         </div>
     </div>
     <div class="container">
         <div id="gallery__grid">
-            <?php if($images){ ?>
-                <?php $i = 0; 
-                    if(count($images) > $i){ ?>
-                        <?php foreach ($images as $image_url){ ?>
-                            <?php $i++; ?>
-                            <?php
-                                // var_dump($image_url);				
-                                $path = $image_url["sizes"]["medium"];
-                                $type = pathinfo($path, PATHINFO_EXTENSION);
-                                $data = file_get_contents($path);
-                                $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-                                ?>
-                            <?php 
-                                if($image_url['height'] > $image_url['width']){ ?>
-                                    <div class="vertical-img-content">
-                                        <img class="el_image gallery-item" onclick="openModal();currentSlide(<?php echo $i ?>)" src="<?= $base64; ?>" alt="<?= $image_url['title']; ?>">
-                                    </div>
-                            <?php }else{ ?>
-                                    <div class="gallery-item-contain">
-                                        <img class="el_image gallery-item" onclick="openModal();currentSlide(<?php echo $i ?>)" src="<?= $base64; ?>" alt="<?= $image_url['title']; ?>">
-                                    </div>
-                            <?php } ?>
-                        <?php } ?>
-                <?php } ?>
-            <?php } ?>
+            <?php foreach ($images as $i => $image_url): ?>
+                <div class="<?= $image_url['height'] > $image_url['width'] ? 'vertical-img-content' : 'gallery-item-contain'; ?>">
+                    <?= wp_get_attachment_image($image_url['ID'] ?? '', 'medium', false, array(
+                        'class' => 'el_image gallery-item',
+                        'loading' => 'lazy',
+                        'decoding' => 'async',
+                        'alt' => $image_url['alt'] ?: $image_url['title'],
+                        'data-index' => $i + 1,
+                        'role' => 'button',
+                        'tabindex' => '0',
+                    )) ?>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
-<script>
-/*
-    * http://cwestblog.com/2017/06/11/javascript-use-canvas-to-watermark-images/
-    * https://gist.github.com/westc/800537c79b7342bd2c44731a5587b941
-    */
-
-function watermarkImage(elemImage, text) {
-    // Create test image to get proper dimensions of the image.
-    let testImage = new Image();
-    testImage.onload = function() {
-        let h = testImage.height,
-            w = testImage.width,
-            img = new Image();
-        // Once the image with the SVG of the watermark is loaded...
-        img.onload = function() {
-            // Make canvas with image and watermark
-            let canvas = Object.assign(document.createElement('canvas'), {
-                width: w,
-                height: h
-            });
-            let ctx = canvas.getContext('2d');
-            ctx.drawImage(testImage, 0, 0);
-            ctx.drawImage(img, 100, 75);
-            // If PNG can't be retrieved show the error in the console
-            try {
-                elemImage.src = canvas.toDataURL('image/png');
-            } catch (e) {
-                console.error('Cannot watermark image with text:', {
-                    src: elemImage.src,
-                    text: text,
-                    error: e
-                });
-            }
-        };
-        // SVG image watermark (HTML of text at bottom right)
-        img.src = "<?= $marca; ?>"
-    };
-    testImage.src = elemImage.src;
-}
-
-function watermarkImageModal(elemImage, text) {
-    // Create test image to get proper dimensions of the image.
-    let testImage = new Image();
-    testImage.onload = function() {
-        let h = testImage.height,
-            w = testImage.width,
-            img = new Image();
-        // Once the image with the SVG of the watermark is loaded...
-        img.onload = function() {
-            // Make canvas with image and watermark
-            let canvas = Object.assign(document.createElement('canvas'), {
-                width: w,
-                height: h
-            });
-            let ctx = canvas.getContext('2d');
-            ctx.drawImage(testImage, 0, 0);
-            ctx.drawImage(img, 256, 220);
-            // If PNG can't be retrieved show the error in the console
-            try {
-                elemImage.src = canvas.toDataURL('image/png');
-            } catch (e) {
-                console.error('Cannot watermark image with text:', {
-                    src: elemImage.src,
-                    text: text,
-                    error: e
-                });
-            }
-        };
-        // SVG image watermark (HTML of text at bottom right)
-        img.src = "<?= $marca_popup; ?>"
-    };
-    testImage.src = elemImage.src;
-}
-
-let elImg = document.querySelectorAll('.el_image');
-let imgModal = document.querySelectorAll('.img-modal-slider');
-for (var i = 0, len = elImg.length; i < len; i++) {
-    watermarkImage(elImg[i]);
-    watermarkImageModal(imgModal[i]);
-}
-
-
-function openModal(){
-    jQuery('.modal-gallery').addClass('open-slider');
-    jQuery('.menu-container').css({'position':'relative'});
-};
-jQuery('.close-modal').on('click', function(e){
-    jQuery('.modal-gallery').removeClass('open-slider');
-    e.preventDefault();
-});
-
-jQuery('.header-content-inner.blocks-animation').append('<a class="btn-view-gallery" onclick="openModal()"><div class="banner-gallery"></div></a>');
-// slider
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("item-slide");
-    var dots = document.getElementsByClassName("demo");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.visibility = "visible";
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-    captionText.innerHTML = dots[slideIndex-1].alt;
-}
-</script>
-<?php endif; ?>
+<?php
+    remove_filter('wp_calculate_image_srcset_meta', '__return_empty_array');
+endif; ?>

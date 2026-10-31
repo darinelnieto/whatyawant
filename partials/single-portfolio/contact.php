@@ -15,15 +15,19 @@ $cta_img = $contact['whatsapp_image'];
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <?php if($contact['title']): ?>
+                <?php if(!empty($contact['title'])): ?>
                     <h2><?= $contact['title'] ?></h2>
-                <?php endif; if($contact['description']): ?>
+                <?php endif; if(!empty($contact['description'])): ?>
                     <div class="description">
                         <?= $contact['description']; ?>
                     </div>
-                <?php endif; if($contact['whatsapp_image']): ?>
-                    <a href="https://wa.me/57<?= $contact['whatsapp_number']; ?>?text=<?php echo $contact['message_whatsapp']; echo ' '. get_the_title(); ?>" target="_blanck">
-                        <img src="<?= $cta_img['url']; ?>" alt="<?= $cta_img['title']; ?>" width="<?= $cta_img['width']; ?>" height="<?= $cta_img['height']; ?>">
+                <?php endif; if(!empty($contact['whatsapp_image'])): ?>
+                    <a href="https://wa.me/57<?= $contact['whatsapp_number']; ?>?text=<?php echo $contact['message_whatsapp']; echo ' '. get_the_title(); ?>" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+                        <?= wp_get_attachment_image($cta_img['ID'] ?? '', 'large', false, array(
+                            'class' => 'whatsapp-img',
+                            'loading' => 'lazy',
+                            'decoding' => 'async'
+                        )) ?>
                     </a>
                 <?php endif; ?>
             </div>

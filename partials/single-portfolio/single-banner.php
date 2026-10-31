@@ -4,7 +4,7 @@ $taxonomia = 'portfolio_cat';
 $terminos_asignados = get_the_terms($post_id, $taxonomia);
 
 ob_start(); // ← Iniciar captura de HTML
-if ($terminos_asignados && !is_wp_error($terminos_asignados)) {
+if (!empty($terminos_asignados) && !is_wp_error($terminos_asignados)) {
     $todos_los_terminos = [];
 
     foreach ($terminos_asignados as $term) {
@@ -41,11 +41,17 @@ if ($terminos_asignados && !is_wp_error($terminos_asignados)) {
 }
 /* Banner */
 $thumb_id = get_post_thumbnail_id(get_the_ID());
-$image = wp_get_attachment_image_src($thumb_id, 'full');
 ?>
 
-<section class="single-banner-partial-1c9173" onclick="openModal();">
-    <img src="<?= $image[0]; ?>" alt="<?= get_the_title(); ?>" width="<?= $image[1]; ?>" height="<?= $image[2]; ?>" class="main-image">
+<section class="single-banner-partial-1c9173">
+    <?= wp_get_attachment_image($thumb_id, 'full', false, array(
+        'class' => 'main-image',
+        'alt' => get_the_title(),
+        'sizes' => '100vw',
+        'loading' => 'eager',
+        'fetchpriority' => 'high',
+        'decoding' => 'async'
+    )) ?>
     <div class="text-content">
         <h1><?= the_title(); ?></h1>
         <p>In <?= $html_terminos; ?></p>

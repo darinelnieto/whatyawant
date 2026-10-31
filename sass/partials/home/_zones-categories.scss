@@ -12,7 +12,27 @@
         object-fit: cover;
         object-position: center;
     }
+    // Slide de varias imágenes: ocupa todo el bloque, detrás del texto
+    .zones-slider{
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        .owl-stage-outer,
+        .owl-stage,
+        .owl-item,
+        .item{
+            height: 100%;
+        }
+        // Antes de que Owl inicialice se muestra solo la primera imagen
+        &.owl-carousel:not(.owl-loaded){
+            display: block;
+            > .item + .item{
+                display: none;
+            }
+        }
+    }
     .text-contain{
+        z-index: 1;
         position: absolute;
         left: 50%;
         top: 50%;

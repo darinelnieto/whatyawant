@@ -20,11 +20,11 @@ $share_post = get_field('share_post', 'option');
         <div class="row justify-content-center">
             <div class="col-12 col-md-6 col-lg-5 mb-4 mb-md-0">
                 <div class="prices-content">
-                    <?php if(get_field('valor')): ?>
+                    <?php if(!empty(get_field('valor'))): ?>
                         <h2 class="price"><?php if(get_field('valor') !== 'Según Temporada'): ?>$<?php endif; echo get_field('valor'); ?></h2>
-                    <?php endif; if($information['price_text']): ?>
+                    <?php endif; if(!empty($information['price_text'])): ?>
                         <p class="text-price"><?= $information['price_text']; ?></p>
-                    <?php endif; if($information['enable_price_list']): ?>
+                    <?php endif; if(!empty($information['enable_price_list'])): ?>
                         <ul class="complement-prices">
                             <?php foreach($information['manual_price_list'] as $item): ?>
                                 <li class="complement-item">
@@ -49,7 +49,7 @@ $share_post = get_field('share_post', 'option');
                 </div>
                 <hr>
                 <div class="global-information">
-                    <?php if($basic_rules_of_use['title'] && $basic_rules_of_use['description']): ?>
+                    <?php if(!empty($basic_rules_of_use['title']) && !empty($basic_rules_of_use['description'])): ?>
                         <div class="basic_rules_of_use">
                             <h3><?= $basic_rules_of_use['title']; ?></h3>
                             <hr class="after-title">
@@ -57,7 +57,7 @@ $share_post = get_field('share_post', 'option');
                                 <?= $basic_rules_of_use['description']; ?>
                             </div>
                         </div>
-                    <?php endif; if($cancellations['title'] && $cancellations['description']): ?>
+                    <?php endif; if(!empty($cancellations['title']) && !empty($cancellations['description'])): ?>
                         <div class="cancellations">
                             <h3><?= $cancellations['title']; ?></h3>
                             <hr class="after-title">
@@ -65,7 +65,7 @@ $share_post = get_field('share_post', 'option');
                                 <?= $cancellations['description']; ?>
                             </div>
                         </div>
-                    <?php endif; if($share_post['text'] && $share_post['shortcode']): ?>
+                    <?php endif; if(!empty($share_post['text']) && !empty($share_post['shortcode'])): ?>
                         <hr>
                         <div class="shares-contain">
                             <span class="label"><?= $share_post['text']; ?></span>
@@ -82,7 +82,7 @@ $share_post = get_field('share_post', 'option');
                         <span><?= $information['messagebox_yellow']; ?></span>
                     </div>
                     <hr>
-                    <?php if($property_details): ?>
+                    <?php if(!empty($property_details)): ?>
                         <div class="property-details">
                             <h3>Detalles de la propiedad</h3>
                             <hr class="after-title">
@@ -94,7 +94,7 @@ $share_post = get_field('share_post', 'option');
                                 <?php endforeach; ?>
                             </ul>
                         </div>
-                    <?php endif; if($property_characteristics): ?>
+                    <?php endif; if(!empty($property_characteristics)): ?>
                         <div class="property-characteristics">
                             <h3>Características de la propiedad</h3>
                             <hr class="after-title">

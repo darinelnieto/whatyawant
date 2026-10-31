@@ -16,14 +16,18 @@ $cta_img = $contact['whatsapp_image'];
 ?>
 
 <footer id="footer-wrapper">
-	<?php if($contact['whatsapp_image']): ?>
-		<a href="https://wa.me/57<?= $contact['whatsapp_number']; ?>?text=<?php echo $contact['message_whatsapp']; ?>" class="whatsapp-fixed" target="_blanck">
-			<img src="<?= $cta_img['url']; ?>" alt="<?= $cta_img['title']; ?>" width="<?= $cta_img['width']; ?>" height="<?= $cta_img['height']; ?>">
+	<?php if(!empty($contact['whatsapp_image'])): ?>
+		<a href="https://wa.me/57<?= $contact['whatsapp_number']; ?>?text=<?php echo $contact['message_whatsapp']; ?>" class="whatsapp-fixed" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+			<?= wp_get_attachment_image($cta_img['ID'] ?? '', 'large', false, array(
+				'class' => 'whatsapp-img',
+				'loading' => 'lazy',
+				'decoding' => 'async'
+			)) ?>
 		</a>
 	<?php endif; ?>
 	<div class="scroll-top">
-		<a href="#">
-			<i class="fa fa-angle-up fa-stack"></i>
+		<a href="#" aria-label="Volver arriba">
+			<i class="fa fa-angle-up fa-stack" aria-hidden="true"></i>
 		</a>
 	</div>
     <div class="top-content">
@@ -60,7 +64,7 @@ $cta_img = $contact['whatsapp_image'];
 						<ul class="social-network">
 							<?php foreach($content_center['social_networks'] as $li): ?>
 								<li>
-									<a href="<?= $li['link']['url']; ?>" target="<?= $li['link']['target']; ?>">
+									<a href="<?= esc_url($li['link']['url']); ?>" target="<?= esc_attr($li['link']['target']); ?>" rel="noopener" aria-label="<?= esc_attr($li['link']['title'] ?: wp_parse_url($li['link']['url'], PHP_URL_HOST)); ?>">
 										<?= $li['icon']; ?>
 									</a>
 								</li>
@@ -77,7 +81,12 @@ $cta_img = $contact['whatsapp_image'];
 								<li>
 									<a href="<?= get_permalink($item['blog']->ID); ?>">
 										<div class="image-contain">
-											<img src="<?= get_the_post_thumbnail_url($item['blog']->ID); ?>" alt="<?= get_the_title($item['blog']->ID); ?>">
+											<?= wp_get_attachment_image(get_post_thumbnail_id($item['blog']->ID), 'medium', false, array(
+												'class' => 'footer-blog-image',
+												'loading' => 'lazy',
+												'decoding' => 'async',
+												'alt' => get_the_title($item['blog']->ID),
+											)) ?>
 										</div>
 										<div class="text">
 											<h3><?= get_the_title($item['blog']->ID); ?></h3>
@@ -96,7 +105,12 @@ $cta_img = $contact['whatsapp_image'];
 		<div class="container">
 			<div class="row">
 				<div class="col-12 text-center">
-					<img src="<?= esc_url( wp_get_attachment_url( get_theme_mod( 'custom_logo' ) ) ); ?>" alt="Logo whatyawant" class="logo">
+					<?= wp_get_attachment_image(get_theme_mod('custom_logo'), 'full', false, array(
+						'class' => 'logo',
+						'loading' => 'lazy',
+						'decoding' => 'async',
+						'alt' => 'Logo whatyawant',
+					)) ?>
 					<div class="p-copy"><?= get_field('copyright_content', 'option'); ?></div>
 				</div>
 			</div>
