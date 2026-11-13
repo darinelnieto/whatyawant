@@ -76,42 +76,49 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/whatyawant-template.php"
+                "value": "templates/whatyawant-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/blog-page-template.php"
+                "value": "templates/blog-page-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/properites-template.php"
+                "value": "templates/properites-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/contact-template.php"
+                "value": "templates/contact-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/rent-my-property-template.php"
+                "value": "templates/rent-my-property-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/reviews-page-template.php"
+                "value": "templates/reviews-page-template.php"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates/vacant-properties-template.php"
             }
         ]
     ],
@@ -124,5 +131,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1752330730
+    "modified": 1794585713
 }

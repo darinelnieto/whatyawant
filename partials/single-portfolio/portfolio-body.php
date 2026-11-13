@@ -3,7 +3,7 @@
 /**
  * 
  * Partial Name: portfolio-body
- * 
+ *  
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.

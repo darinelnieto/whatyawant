@@ -63,7 +63,9 @@ export default function initHeader() {
     });
 
     // Filtros desplegables del listado de propiedades
+    // (los dropdowns de propiedades sin amoblar se manejan en portfolio.js)
     $('#filters').on('click', 'h3', function() {
+        if ($(this).closest('.feature-properties-vacant').length) return;
         $(this).parent().toggleClass('active');
     });
 }

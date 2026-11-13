@@ -64,6 +64,7 @@ export default function initPortfolio() {
     const load = () => {
         const availability = activeFilters('.availability');
         const rooms = activeFilters('.rooms');
+        const priceRange = activeFilters('.price-range');
 
         $container.attr('aria-busy', 'true');
         $.ajax({
@@ -73,6 +74,8 @@ export default function initPortfolio() {
                 category: $container.data('category') || '',
                 availability: availability.length ? availability : '',
                 rooms: rooms.length ? rooms : '',
+                price_range: priceRange.length ? priceRange : '',
+                vacant: $container.data('vacant') || '',
                 page: currentPage,
                 posts_per_page: POSTS_PER_PAGE
             }
@@ -101,10 +104,53 @@ export default function initPortfolio() {
     });
 
     // Resetear página si cambian los filtros
-    $('.availability, .rooms').on('click', 'a', function(e) {
+    $('.availability, .rooms, .price-range').on('click', 'a', function(e) {
         e.preventDefault();
         $(this).toggleClass('active');
+        updateCount($(this).closest('.filter'));
         currentPage = 1;
         load();
+    });
+
+    initFilterDropdowns();
+}
+
+// Muestra cuántas opciones hay marcadas en el título del dropdown
+function updateCount($filter) {
+    const total = $filter.find('a.active').length;
+    $filter.find('.count').text(total ? `(${total})` : '');
+}
+
+/*========= Dropdowns de filtros (propiedades sin amoblar) =========*/
+function initFilterDropdowns() {
+    const $filters = $('.feature-properties-vacant #filters');
+    if (!$filters.length) return;
+
+    const close = ($filter) => {
+        $filter.removeClass('active').find('h3').attr('aria-expanded', 'false');
+    };
+
+    const toggle = ($filter) => {
+        const open = !$filter.hasClass('active');
+        close($filters.find('.filter.active').not($filter));
+        $filter.toggleClass('active', open).find('h3').attr('aria-expanded', String(open));
+    };
+
+    $filters.on('click', 'h3', function() {
+        toggle($(this).closest('.filter'));
+    }).on('keydown', 'h3', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle($(this).closest('.filter'));
+        }
+    });
+
+    // Clic fuera o Escape cierra el dropdown abierto
+    $(document).on('click', (e) => {
+        if (!$(e.target).closest('.feature-properties-vacant #filters .filter').length) {
+            close($filters.find('.filter.active'));
+        }
+    }).on('keydown', (e) => {
+        if (e.key === 'Escape') close($filters.find('.filter.active'));
     });
 }

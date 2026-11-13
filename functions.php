@@ -289,8 +289,52 @@ function portfolio_post(){
     'query_var' => true,
     'rewrite' => array('slug' => 'number_of_rooms'),
   ));
+  /*============ Argument taxonimy ============*/
+   $labels = array(
+    'name' => _x('Price range', 'taxonomy general name'),
+    'singular_name' => _x('Price range', 'taxonomy singular name'),
+    'search_items' =>  __('Search Price range'),
+    'all_items' => __('All Price ranges'),
+    'parent_item' => __('Parent Price range'),
+    'parent_item_colon' => __('Parent Price range:'),
+    'edit_item' => __('Edit Price range'),
+    'update_item' => __('Update Price range'),
+    'add_new_item' => __('Add New Price range'),
+    'new_item_name' => __('New Price range Name'),
+    'menu_name' => __('Price range'),
+  );
+  /*========== Register taxonomi ==========*/
+  register_taxonomy('price_range', array('portfolio'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_in_rest' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array('slug' => 'price_range'),
+  ));
 }
 add_action('init', 'portfolio_post', 3);
+
+/*
+ * Rangos de precio iniciales (propiedades sin amoblar). Se crean una sola vez;
+ * después se pueden editar desde Portfolio → Price range.
+ */
+add_action('init', function () {
+  if (get_option('ditto_price_range_seeded')) return;
+  $ranges = array(
+    '3-6-millones'       => '$3M - $6M',
+    '6-9-millones'       => '$6M - $9M',
+    '9-12-millones'      => '$9M - $12M',
+    'mas-de-12-millones' => '+ $12M',
+  );
+  foreach ($ranges as $slug => $name) {
+    if (!term_exists($slug, 'price_range')) {
+      wp_insert_term($name, 'price_range', array('slug' => $slug));
+    }
+  }
+  update_option('ditto_price_range_seeded', 1);
+}, 20);
 /*============== Api portfolio ==============*/
 add_action('rest_api_init', function () {
   register_rest_route('relatos', '/list', array(
@@ -312,11 +356,19 @@ function portfolio_list_handler($request){
     'portfolio_cat' => $request['category'],
     'availability_cat' => $request['availability'],
     'number_of_rooms' => $request['rooms'],
+    'price_range' => $request['price_range'],
     'posts_per_page' => $per_page,
     'paged' => $paged,
     'orderby' => 'title',
     'order' => 'ASC',
   ];
+
+  // Listado de propiedades sin amoblar (template "Vacant properties")
+  if (!empty($request['vacant'])) {
+    $query['meta_query'] = array(
+      array('key' => 'is_vacant_properties', 'value' => '1'),
+    );
+  }
 
   $news = new WP_Query($query);
   $relatos = array();
