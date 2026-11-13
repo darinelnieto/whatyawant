@@ -405,12 +405,22 @@ function ditto_webp_url($url) {
     return $memo[$url];
   }
 
+  $original = $url;
+  // image_downsize() arma la URL de cada tamaño cambiando el nombre de archivo sobre
+  // wp_get_attachment_url(), que ya apunta a /webp-cache (foto.jpeg.webp). Resultado:
+  // /webp-cache/…/foto-300x225.jpeg, que no existe. Se devuelve a /uploads y se resuelve normal.
+  $cache_base = preg_replace('#^https?:#', '', DITTO_WEBP_URL) . '/';
+  $no_scheme = preg_replace('#^https?:#', '', $url);
+  if (strpos($no_scheme, $cache_base) === 0 && !preg_match('/\.webp$/i', $url)) {
+    $url = ditto_webp_uploads()['baseurl'] . '/' . substr($no_scheme, strlen($cache_base));
+  }
+
   $relative = ditto_webp_relative($url, true);
-  $memo[$url] = ($relative && is_file(ditto_webp_target($relative)))
+  $memo[$original] = ($relative && is_file(ditto_webp_target($relative)))
     ? DITTO_WEBP_URL . '/' . str_replace('%2F', '/', rawurlencode($relative)) . '.webp'
     : $url;
 
-  return $memo[$url];
+  return $memo[$original];
 }
 
 add_filter('wp_get_attachment_url', 'ditto_webp_url', 20);
