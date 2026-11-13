@@ -11,8 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 $information = get_field('information');
 $property_details = get_field('property_details');
 $property_characteristics = get_field('property_characteristics');
-$basic_rules_of_use = get_field('basic_rules_of_use', 'option');
-$cancellations = get_field('cancellations', 'option');
+if (get_field('is_vacant_properties') === true){
+    $basic_rules_of_use = get_field('vacant_properties_basic_rules_of_use', 'option');
+    $cancellations = get_field('vacant_properties_cancellations', 'option');
+} else {
+    $cancellations = get_field('cancellations', 'option');
+    $basic_rules_of_use = get_field('basic_rules_of_use', 'option');
+}
 $share_post = get_field('share_post', 'option');
 ?>
 <section class="portfolio-body-partial-59cf78">
@@ -21,7 +26,7 @@ $share_post = get_field('share_post', 'option');
             <div class="col-12 col-md-6 col-lg-5 mb-4 mb-md-0">
                 <div class="prices-content">
                     <?php if(!empty(get_field('valor'))): ?>
-                        <h2 class="price"><?php if(get_field('valor') !== 'Según Temporada'): ?>$<?php endif; echo get_field('valor'); ?></h2>
+                        <h2 class="price"><?php if(get_field('valor') !== 'Según Temporada'): ?><?php endif; echo get_field('valor'); ?></h2>
                     <?php endif; if(!empty($information['price_text'])): ?>
                         <p class="text-price"><?= $information['price_text']; ?></p>
                     <?php endif; if(!empty($information['enable_price_list'])): ?>

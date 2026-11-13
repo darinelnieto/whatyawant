@@ -166,8 +166,19 @@ if (function_exists('acf_add_options_page')){
 		'parent_slug'   => 'theme-settings',
 	));
   acf_add_options_sub_page(array(
+		'page_title'     => 'Vacant properties',
+		'menu_title'     => 'Vacant properties',
+		'parent_slug'   => 'theme-settings',
+	));
+  acf_add_options_sub_page(array(
 		'page_title'     => 'FAQ',
 		'menu_title'     => 'FAQ',
+		'parent_slug'   => 'theme-settings',
+	));
+  acf_add_options_sub_page(array(
+		'page_title'     => 'Vacant properties FAQ',
+		'menu_title'     => 'Vacant properties FAQ',
+		'menu_slug'      => 'acf-options-vacant-properties-faq',
 		'parent_slug'   => 'theme-settings',
 	));
   acf_add_options_sub_page(array(

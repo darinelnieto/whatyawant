@@ -8,14 +8,21 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
-$faq = get_field('preguntas_frecuentes', 'option');
+// Propiedades vacacionales usan sus propias FAQ (misma condición que el banner y portfolio-body)
+if (get_field('is_vacant_properties') === true){
+    $faq = get_field('vacant_properties_preguntas_frecuentes', 'option');
+    $faq_title = get_field('vacant_properties_fqas_title', 'option');
+} else {
+    $faq = get_field('preguntas_frecuentes', 'option');
+    $faq_title = get_field('fqas_title', 'option');
+}
 if(!empty($faq)): 
 ?>
 <section class="fqas-partial-4947e5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
-                <h2 class="title-faq"><?= get_field('fqas_title', 'option') ?? ''; ?></h2>
+                <h2 class="title-faq"><?= $faq_title ?? ''; ?></h2>
                 <ul class="frequently-asked-questions-content">
                     <?php if(!empty($faq)){
                         foreach($faq as $index => $item_faq){ ?>

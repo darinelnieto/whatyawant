@@ -17,6 +17,7 @@ import initZones from './modules/zones';
 import initFaq from './modules/faq';
 import initPortfolio from './modules/portfolio';
 import initGallery from './modules/gallery';
+import initSingleBanner from './modules/single-banner';
 
 window.ditto = {
     menu: (el) => {
@@ -31,4 +32,5 @@ $(() => {
     initFaq();
     initPortfolio();
     initGallery();
+    initSingleBanner();
 });

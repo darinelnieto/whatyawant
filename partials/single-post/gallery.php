@@ -18,6 +18,7 @@ $marca_popup = get_template_directory_uri().'/images/logo-marca-de-agua-popup.pn
         add_filter('wp_calculate_image_srcset_meta', '__return_empty_array');
     ?>
     <div class="modal-gallery" role="dialog" aria-modal="true" aria-label="Galería de imágenes" aria-hidden="true">
+        <span class="modal-gallery-overlay close-modal" aria-hidden="true"></span>
         <a href="#" class="close-modal" role="button" aria-label="Cerrar galería">&times;</a>
         <div class="content">
             <?php foreach($images as $img): ?>

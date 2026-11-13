@@ -16,6 +16,7 @@ if(!empty($images)):
 ?>
 <section class="gallery-partial-b8b620 js-gallery" data-watermark-grid="<?= esc_url($marca); ?>" data-watermark-popup="<?= esc_url($marca_popup); ?>">
     <div class="modal-gallery" role="dialog" aria-modal="true" aria-label="Galería de imágenes" aria-hidden="true">
+        <span class="modal-gallery-overlay close-modal" aria-hidden="true"></span>
         <a href="#" class="close-modal" role="button" aria-label="Cerrar galería">&times;</a>
         <div class="content">
             <?php foreach($images as $img): ?>

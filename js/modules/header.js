@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-const isMobile = () => window.innerWidth < 768;
+const isMobile = () => window.innerWidth < 1000;
 
 /*========= Header, menú y scroll =========*/
 export default function initHeader() {

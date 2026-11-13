@@ -4,9 +4,10 @@ import $ from 'jquery';
  * Marca de agua con canvas
  * http://cwestblog.com/2017/06/11/javascript-use-canvas-to-watermark-images/
  */
-function watermarkImage(elemImage, markSrc, x, y) {
+export function watermarkImage(elemImage, markSrc, x, y) {
     const apply = () => {
-        if (elemImage.dataset.watermarked) return;
+        // Un clon de Owl puede copiar el flag sin la imagen ya marcada: se comprueba el src
+        if (elemImage.dataset.watermarked && elemImage.src.startsWith('data:')) return;
         elemImage.dataset.watermarked = '1';
 
         const source = new Image();
@@ -20,7 +21,10 @@ function watermarkImage(elemImage, markSrc, x, y) {
                 });
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(source, 0, 0);
-                ctx.drawImage(mark, x, y);
+                // Sin coordenadas: la marca se centra (útil en el banner con object-fit: cover)
+                const posX = x ?? Math.round((canvas.width - mark.naturalWidth) / 2);
+                const posY = y ?? Math.round((canvas.height - mark.naturalHeight) / 2);
+                ctx.drawImage(mark, posX, posY);
                 try {
                     elemImage.src = canvas.toDataURL('image/webp', 0.85);
                 } catch (e) {
@@ -70,7 +74,7 @@ export default function initGallery() {
     const openModal = () => {
         $modal.addClass('open-slider').attr('aria-hidden', 'false');
         $('.menu-container').css({ position: 'relative' });
-        $modal.find('.close-modal').trigger('focus');
+        $modal.find('a.close-modal').trigger('focus');
     };
 
     const closeModal = () => {
@@ -102,7 +106,11 @@ export default function initGallery() {
     });
 
     // El banner de la propiedad abre la galería
-    $('.single-banner-partial-1c9173').on('click', openModal);
+    // (salvo los controles del slide: flechas y puntos solo cambian de imagen)
+    $('.single-banner-partial-1c9173').on('click', (e) => {
+        if ($(e.target).closest('.owl-nav, .owl-dots').length) return;
+        openModal();
+    });
 
     $('.header-content-inner.blocks-animation').append(
         $('<a href="#" class="btn-view-gallery" role="button" aria-label="Ver galería"><div class="banner-gallery"></div></a>').on('click', (e) => {
