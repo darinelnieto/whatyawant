@@ -14,6 +14,12 @@
         border: none;
      }
     .container{
+        @media screen and (min-width: 992px) and (max-width:1200px){
+            max-width: 1110px !important;
+        }
+        // @media (min-width: 992px){
+        //     max-width: 1110px !important;
+        // }
         .logo-contain{
             a{
                 img{
@@ -43,7 +49,7 @@
             .center{
                 margin: 7px 0;
             }
-            @media(max-width:768px){
+            @media(max-width:1000px){
                 display: block;
                 margin-left: auto;
             }
@@ -133,7 +139,7 @@
                     }
                 }
             }
-            @media(max-width:768px){
+            @media(max-width:1000px){
                 right: 0;
                 bottom: 0;
                 transform: translate(120%, 100%);
@@ -183,6 +189,15 @@
                                     line-height: 1em;
                                 }
                             }
+                        }
+                    }
+                }
+            }
+            @media screen and (min-width:769px) and (max-width:1400px){
+                ul{
+                    li{
+                        a{
+                            font-size: 14px;
                         }
                     }
                 }

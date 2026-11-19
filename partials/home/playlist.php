@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 $playlist = get_field('playlist_content');
-if($playlist['list']):
+if(!empty($playlist['list'])):
 ?>
 <section class="playlist-partial-68e5ee">
     <div class="container">
@@ -21,7 +21,12 @@ if($playlist['list']):
                     <div class="col-12 col-md-5">
                         <div class="content-playlist">
                             <a href="<?= get_field('link', $item['item']->ID)['url']; ?>" target="_blank">
-                                <img src="<?= get_field('imagen',$item['item']->ID)['url']; ?>" alt="" class="image-playlist">
+                                <?= wp_get_attachment_image(get_field('imagen', $item['item']->ID)['ID'] ?? '', 'large', false, array(
+                                    'class' => 'image-playlist',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async',
+                                    'alt' => get_the_title($item['item']->ID),
+                                )) ?>
                                 <h4><?= get_the_title($item['item']->ID); ?></h4>
                             </a>
                         </div>

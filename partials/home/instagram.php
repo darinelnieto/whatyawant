@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 $instagram = get_field('instagram_content', 'option');
+if(!empty($instagram['shortcode_instagram'])):
 ?>
 <section class="instagram-partial-d57523">
     <div class="container">
@@ -23,4 +24,4 @@ $instagram = get_field('instagram_content', 'option');
         </div>
     </div>
 </section>
-                    
+<?php endif; ?>

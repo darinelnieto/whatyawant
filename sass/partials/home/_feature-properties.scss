@@ -292,3 +292,86 @@
         font-size: 18px;
     }
 }
+/*========= Propiedades sin amoblar: filtros en dropdown =========*/
+.feature-properties-partial-e14bf5.feature-properties-vacant{
+    #filters{
+        row-gap: 12px;
+        position: relative;
+        z-index: 5;
+        .filter{
+            position: relative;
+            h3{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 8px;
+                margin: 0;
+                padding: 10px 40px 10px 14px;
+                text-decoration: none;
+                font-size: 16px;
+                background: $white;
+                border: 1px solid $gray_borders;
+                border-radius: 4px;
+                cursor: pointer;
+                user-select: none;
+                .count{
+                    margin-right: auto;
+                    color: $yellow;
+                    font-weight: 700;
+                }
+                &::after{
+                    display: block;
+                    right: 16px;
+                    top: 50%;
+                    width: 9px;
+                    height: 9px;
+                    transform: translateY(-75%) rotate(-45deg);
+                }
+                &:focus-visible{
+                    outline: 2px solid $yellow;
+                    outline-offset: 2px;
+                }
+            }
+            // Panel del dropdown: opciones en columna
+            ul{
+                display: none;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                gap: 10px;
+                height: auto;
+                position: absolute;
+                top: calc(100% + 6px);
+                left: calc(var(--bs-gutter-x, 1.5rem) * .5);
+                right: calc(var(--bs-gutter-x, 1.5rem) * .5);
+                padding: 14px;
+                background: $white;
+                border: 1px solid $gray_borders;
+                border-radius: 4px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+                li a{
+                    width: 100%;
+                }
+            }
+            @media(max-width:768px){
+                ul{
+                    height: auto;
+                }
+            }
+        }
+        .filter.active{
+            h3::after{
+                transform: translateY(-25%) rotate(135deg);
+            }
+            ul{
+                display: flex;
+            }
+        }
+        // En móvil el panel empuja el contenido en vez de flotar encima
+        @media(max-width:767px){
+            .filter ul{
+                position: static;
+                margin-top: 6px;
+            }
+        }
+    }
+}

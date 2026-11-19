@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $blog = new WP_Query(array(
     'post_type' => 'post',
     'post_status' => 'publish',
-    'post_per_page' => -1,
+    'posts_per_page' => -1,
     'order' => 'DESC',
 ));
 if($blog->have_posts()):
@@ -25,7 +25,12 @@ if($blog->have_posts()):
                         <div class="col-12 col-md-6 mb-5">
                             <a href="<?= get_permalink(); ?>" class="card-post">
                                 <div class="image-contain">
-                                    <img src="<?= get_the_post_thumbnail_url(); ?>" alt="<?= the_title(); ?>">
+                                    <?= wp_get_attachment_image(get_post_thumbnail_id(), 'large', false, array(
+                                        'class' => 'post-thumbnail',
+                                        'loading' => 'lazy',
+                                        'decoding' => 'async',
+                                        'alt' => get_the_title(),
+                                    )); ?>
                                 </div>
                                 <div class="text-contain">
                                     <h3><?= the_title(); ?></h3>

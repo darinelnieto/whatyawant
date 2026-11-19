@@ -24,9 +24,4 @@ get_header();
 		</div>
 	</section>
 </main>
-<script>
-	$(()=>{
-		$('.header-content-partial-1bbfc7').removeClass('not-fixed');
-	});
-</script>
 <?php get_footer(); ?>

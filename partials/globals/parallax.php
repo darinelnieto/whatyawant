@@ -15,7 +15,11 @@ $parallax = get_field('wyw_parallax');
         <div class="row">
             <div class="col-12">
                 <div class="content">
-                    <img src="<?= $parallax['main_image']['url']; ?>" alt="<?= $parallax['main_image']['title']; ?>" width="<?= $parallax['main_image']['width']; ?>" height="<?= $parallax['main_image']['height']; ?>">
+                    <?= wp_get_attachment_image($parallax['main_image']['ID'] ?? '', 'large', false, array(
+                        'class' => 'img-full',
+                        'loading' => 'lazy',
+                        'decoding' => 'async'
+                    )); ?>
                     <p><?= $parallax['text']; ?></p>
                 </div>
             </div>

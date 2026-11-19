@@ -3,6 +3,27 @@
     "title": "generic banner",
     "fields": [
         {
+            "key": "field_f20ee54509c3d",
+            "label": "Slide",
+            "name": "enable_slide",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Actívalo para mostrar un slide con la galería en lugar de una sola imagen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_686211d2e1db9",
             "label": "Main image",
             "name": "main_image",
@@ -10,7 +31,15 @@
             "type": "image",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_f20ee54509c3d",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -26,6 +55,42 @@
             "max_size": "",
             "mime_types": "",
             "allow_in_bindings": 0,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_80c323e9ea19e",
+            "label": "Banner gallery",
+            "name": "banner_gallery",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_f20ee54509c3d",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "insert": "append",
             "preview_size": "medium"
         },
         {
@@ -76,42 +141,49 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/whatyawant-template.php"
+                "value": "templates/whatyawant-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/blog-page-template.php"
+                "value": "templates/blog-page-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/properites-template.php"
+                "value": "templates/properites-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/contact-template.php"
+                "value": "templates/contact-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/rent-my-property-template.php"
+                "value": "templates/rent-my-property-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/reviews-page-template.php"
+                "value": "templates/reviews-page-template.php"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates/vacant-properties-template.php"
             }
         ]
     ],
@@ -124,5 +196,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1752330730
+    "modified": 1795113097
 }

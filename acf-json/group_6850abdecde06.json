@@ -465,6 +465,27 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
+                    "key": "field_6a1f2c0b7e101",
+                    "label": "Varias imágenes",
+                    "name": "multiple_images",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Actívalo para mostrar un slide con varias imágenes en lugar de una sola.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "Sí",
+                    "ui_off_text": "No",
+                    "parent_repeater": "field_685c92d1dfe4d"
+                },
+                {
                     "key": "field_685c93aca8ac5",
                     "label": "Main image",
                     "name": "main_image",
@@ -472,7 +493,15 @@
                     "type": "image",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a1f2c0b7e101",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -487,6 +516,43 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_685c92d1dfe4d"
+                },
+                {
+                    "key": "field_6a1f2c0b7e102",
+                    "label": "Galería",
+                    "name": "gallery_images",
+                    "aria-label": "",
+                    "type": "gallery",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a1f2c0b7e101",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min": "",
+                    "max": "",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "insert": "append",
                     "preview_size": "medium",
                     "parent_repeater": "field_685c92d1dfe4d"
                 },
@@ -782,7 +848,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/home-template.php"
+                "value": "templates/home-template.php"
             }
         ]
     ],
@@ -795,5 +861,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1752461672
+    "modified": 1793469176
 }

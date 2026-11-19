@@ -94,7 +94,14 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/properites-template.php"
+                "value": "templates/properites-template.php"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates/vacant-properties-template.php"
             }
         ]
     ],
@@ -107,5 +114,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1751512805
+    "modified": 1794585713
 }

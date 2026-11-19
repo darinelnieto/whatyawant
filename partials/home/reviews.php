@@ -8,6 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 $reviews = get_field('reviews');
+if(!empty($reviews)):
 ?>
 <section class="reviews-partial-19bdc6">
     <div class="container">
@@ -18,3 +19,4 @@ $reviews = get_field('reviews');
         </div>
     </div>
 </section>
+<?php endif; ?>

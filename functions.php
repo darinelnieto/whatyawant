@@ -9,20 +9,76 @@ if ( ! defined( 'ABSPATH' ) ) {
  * https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
  */
 function ditto_scripts() {
-  wp_enqueue_style( 'core', get_template_directory_uri() . '/style.css' );
-  wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/css/main.bundle.css' );
-  wp_enqueue_style( 'bootstrap.css', get_template_directory_uri() . '/css/bootstrap.min.css' );
-  wp_enqueue_style('owl-carousel.css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css');
-  wp_enqueue_style('font-awesome.css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
+  $dist_dir = get_template_directory() . '/dist';
+  $dist_uri = get_template_directory_uri() . '/dist';
+  $css_ver = file_exists($dist_dir . '/css/main.bundle.css') ? filemtime($dist_dir . '/css/main.bundle.css') : null;
+  $js_ver = file_exists($dist_dir . '/js/main.bundle.js') ? filemtime($dist_dir . '/js/main.bundle.js') : null;
 
-  wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/js/main.bundle.js', array( 'jquery' ), '', true );
-  wp_enqueue_script('font-awesome.js', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js');
-  wp_enqueue_script( 'bootstrap.js', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '', true );
-  wp_enqueue_script('owl-carousel.js', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js');
-  wp_register_script('custom.js', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1', true);
-  wp_enqueue_script('custom.js');
+  // Un solo CSS y un solo JS (Bootstrap, Owl Carousel, Font Awesome y fuentes vía npm/webpack)
+  wp_enqueue_style( 'main-styles', $dist_uri . '/css/main.bundle.css', array(), $css_ver );
+  wp_enqueue_script( 'main-scripts', $dist_uri . '/js/main.bundle.js', array( 'jquery' ), $js_ver, array(
+    'in_footer' => true,
+    'strategy'  => 'defer',
+  ) );
 }
 add_action( 'wp_enqueue_scripts', 'ditto_scripts');
+
+/**
+ * jQuery: se usa el de WordPress (sin jquery-migrate) y en el footer
+ */
+function ditto_jquery_footer() {
+  if (is_admin()) {
+    return;
+  }
+  wp_deregister_script('jquery');
+  wp_register_script('jquery', false, array('jquery-core'), null, true);
+  wp_script_add_data('jquery-core', 'group', 1);
+}
+add_action( 'wp_enqueue_scripts', 'ditto_jquery_footer', 1 );
+
+/**
+ * Quitar assets que el theme no usa (editor clásico, sin bloques)
+ */
+function ditto_dequeue_unused_assets() {
+  wp_dequeue_style('wp-block-library');
+  wp_dequeue_style('wp-block-library-theme');
+  wp_dequeue_style('classic-theme-styles');
+  wp_dequeue_style('global-styles');
+}
+add_action( 'wp_enqueue_scripts', 'ditto_dequeue_unused_assets', 100 );
+
+/**
+ * ShareThis solo donde está el shortcode (ficha de propiedad y blog) y sin bloquear el render.
+ * En el resto de páginas no se carga: evita cookies de terceros y una petición bloqueante.
+ */
+function ditto_sharethis_only_where_used() {
+  if (is_singular(array('portfolio', 'post'))) {
+    wp_script_add_data('share-this-share-buttons-mu', 'strategy', 'async');
+    return;
+  }
+  wp_dequeue_script('share-this-share-buttons-mu');
+  wp_dequeue_style('share-this-share-buttons-sticky');
+}
+add_action( 'wp_enqueue_scripts', 'ditto_sharethis_only_where_used', 100 );
+
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wp_shortlink_wp_head');
+add_filter('emoji_svg_url', '__return_false');
+
+/**
+ * Precarga de la fuente principal (evita saltos de texto / mejora LCP)
+ */
+function ditto_preload_fonts() {
+  $font = '/dist/fonts/raleway-latin-wght-normal.woff2';
+  if (file_exists(get_template_directory() . $font)) {
+    echo '<link rel="preload" href="' . esc_url(get_template_directory_uri() . $font) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+  }
+}
+add_action( 'wp_head', 'ditto_preload_fonts', 1 );
 
 /**
  * Register Navigation Menus
@@ -41,6 +97,16 @@ add_action( 'init', 'ditto_navigation_menus' );
  * https://developer.wordpress.org/reference/functions/add_theme_support/
  */
 add_theme_support( 'custom-logo' );
+add_theme_support( 'title-tag' );
+add_theme_support( 'html5', array( 'script', 'style', 'gallery', 'caption' ) );
+
+function ditto_custom_logo_image_attributes( $custom_logo_attr ) {
+  // El logo está arriba pero no es el LCP: carga inmediata sin robar prioridad al hero
+  $custom_logo_attr['loading'] = 'eager';
+  $custom_logo_attr['decoding'] = 'async';
+  return $custom_logo_attr;
+}
+add_filter( 'get_custom_logo_image_attributes', 'ditto_custom_logo_image_attributes' );
 
 /**
  * Login Styles
@@ -69,15 +135,6 @@ function ditto_login_styles() { ?>
   </script>
 <?php }
 add_action( 'login_enqueue_scripts', 'ditto_login_styles' );
-
-/**
- * Install latest jQuery version 3.5.1
- */
-if (!is_admin()) {
-	wp_deregister_script('jquery');
-	wp_register_script('jquery', ("https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"), false);
-	wp_enqueue_script('jquery');
-}
 
 /**
  * Disable Gutenberg
@@ -109,8 +166,19 @@ if (function_exists('acf_add_options_page')){
 		'parent_slug'   => 'theme-settings',
 	));
   acf_add_options_sub_page(array(
+		'page_title'     => 'Vacant properties',
+		'menu_title'     => 'Vacant properties',
+		'parent_slug'   => 'theme-settings',
+	));
+  acf_add_options_sub_page(array(
 		'page_title'     => 'FAQ',
 		'menu_title'     => 'FAQ',
+		'parent_slug'   => 'theme-settings',
+	));
+  acf_add_options_sub_page(array(
+		'page_title'     => 'Vacant properties FAQ',
+		'menu_title'     => 'Vacant properties FAQ',
+		'menu_slug'      => 'acf-options-vacant-properties-faq',
 		'parent_slug'   => 'theme-settings',
 	));
   acf_add_options_sub_page(array(
@@ -221,8 +289,52 @@ function portfolio_post(){
     'query_var' => true,
     'rewrite' => array('slug' => 'number_of_rooms'),
   ));
+  /*============ Argument taxonimy ============*/
+   $labels = array(
+    'name' => _x('Price range', 'taxonomy general name'),
+    'singular_name' => _x('Price range', 'taxonomy singular name'),
+    'search_items' =>  __('Search Price range'),
+    'all_items' => __('All Price ranges'),
+    'parent_item' => __('Parent Price range'),
+    'parent_item_colon' => __('Parent Price range:'),
+    'edit_item' => __('Edit Price range'),
+    'update_item' => __('Update Price range'),
+    'add_new_item' => __('Add New Price range'),
+    'new_item_name' => __('New Price range Name'),
+    'menu_name' => __('Price range'),
+  );
+  /*========== Register taxonomi ==========*/
+  register_taxonomy('price_range', array('portfolio'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_in_rest' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array('slug' => 'price_range'),
+  ));
 }
 add_action('init', 'portfolio_post', 3);
+
+/*
+ * Rangos de precio iniciales (propiedades sin amoblar). Se crean una sola vez;
+ * después se pueden editar desde Portfolio → Price range.
+ */
+add_action('init', function () {
+  if (get_option('ditto_price_range_seeded')) return;
+  $ranges = array(
+    '3-6-millones'       => '$3M - $6M',
+    '6-9-millones'       => '$6M - $9M',
+    '9-12-millones'      => '$9M - $12M',
+    'mas-de-12-millones' => '+ $12M',
+  );
+  foreach ($ranges as $slug => $name) {
+    if (!term_exists($slug, 'price_range')) {
+      wp_insert_term($name, 'price_range', array('slug' => $slug));
+    }
+  }
+  update_option('ditto_price_range_seeded', 1);
+}, 20);
 /*============== Api portfolio ==============*/
 add_action('rest_api_init', function () {
   register_rest_route('relatos', '/list', array(
@@ -244,11 +356,32 @@ function portfolio_list_handler($request){
     'portfolio_cat' => $request['category'],
     'availability_cat' => $request['availability'],
     'number_of_rooms' => $request['rooms'],
+    'price_range' => $request['price_range'],
     'posts_per_page' => $per_page,
     'paged' => $paged,
     'orderby' => 'title',
     'order' => 'ASC',
   ];
+
+  // Sin categoría seleccionada: todas menos "Propiedades vacías" y sus categorías hijas
+  if (empty($request['category']) && empty($request['vacant']) && term_exists('propiedades-vacias', 'portfolio_cat')) {
+    $query['tax_query'] = array(
+      array(
+        'taxonomy' => 'portfolio_cat',
+        'field' => 'slug',
+        'terms' => array('propiedades-vacias'),
+        'operator' => 'NOT IN',
+        'include_children' => true,
+      ),
+    );
+  }
+
+  // Listado de propiedades sin amoblar (template "Vacant properties")
+  if (!empty($request['vacant'])) {
+    $query['meta_query'] = array(
+      array('key' => 'is_vacant_properties', 'value' => '1'),
+    );
+  }
 
   $news = new WP_Query($query);
   $relatos = array();
@@ -258,7 +391,15 @@ function portfolio_list_handler($request){
       $news->the_post();
       array_push($relatos, array(
         'title' => get_the_title(),
-        'thumbnail' => get_the_post_thumbnail_url(),
+        'thumbnail' => get_the_post_thumbnail_url(get_the_ID(), 'medium_large'),
+        // <img> con srcset/sizes generado por WordPress para el card
+        'image' => wp_get_attachment_image(get_post_thumbnail_id(), 'medium_large', false, array(
+          'class' => 'card-propertie-image',
+          'alt' => get_the_title(),
+          'sizes' => '(min-width: 992px) 25vw, (min-width: 768px) 33vw, 100vw',
+          'loading' => 'lazy',
+          'decoding' => 'async',
+        )),
         'permalink' => get_permalink(),
         'valor' => get_field('valor'),
         'ubicacion' => get_field('ubicacion'),
@@ -336,3 +477,14 @@ function check_for_svg($data, $file, $filename, $mimes) {
     return $data;
 }
 add_filter('wp_check_filetype_and_ext', 'check_for_svg', 10, 4);
+
+add_filter('wpseo_canonical', function() {
+  return get_permalink();
+});
+
+add_filter('wpseo_opengraph_url', function() {
+  return get_permalink();
+});
+
+/*=========== Caché WebP (Apariencia → Imágenes WebP) ==========*/
+require_once get_template_directory() . '/inc/webp-cache.php';

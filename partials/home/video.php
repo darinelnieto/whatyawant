@@ -9,13 +9,17 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 $video = get_field('video');
-if($video):
+if(!empty($video)):
 ?>
 <section class="video-partial-d34ac9">
-    <video autoplay muted loop playsinline preload="auto" style="width: 100%; height: auto; object-fit: cover;">
+    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true" style="width: 100%; height: auto; object-fit: cover;">
         <source src="<?= $video['the_video']; ?>" type="video/mp4">
         Tu navegador no soporta video HTML5.
     </video>
-    <img src="<?= $video['text_image']['url']; ?>" alt="<?= $video['text_image']['title']; ?>" width="<?= $video['text_image']['width']; ?>" height="<?= $video['text_image']['height']; ?>" class="text-img">
+    <?= wp_get_attachment_image($video['text_image']['ID'] ?? '', 'large', false, array(
+        'class' => 'text-img',
+        'loading' => 'lazy',
+        'decoding' => 'async'
+    )) ?>
 </section>
 <?php endif; ?>

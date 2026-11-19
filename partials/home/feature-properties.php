@@ -16,16 +16,16 @@ $disponibilidad = ['Disponible', 'No Disponible', 'Proximamente'];
 <section class="feature-properties-partial-e14bf5">
     <div class="container">
         <div class="row justify-content-center">
-            <?php if($properties['title'] || $properties['description']): ?>
+            <?php if(!empty($properties['title']) || !empty($properties['description'])): ?>
                 <div class="col-12 text-center title-content">
-                    <h2><?= $properties['title']; ?></h2>
-                    <p class="description"><?= $properties['description']; ?></p>
+                    <h2><?= $properties['title'] ?? ''; ?></h2>
+                    <p class="description"><?= $properties['description'] ?? ''; ?></p>
                     <hr>
                 </div>
             <?php endif; ?>
             <div class="col-12 col-lg-10">
                 <div class="row justify-content-between" id="filters">
-                    <?php if($availability): $key = -1; ?>
+                    <?php if(!empty($availability)): $key = -1; ?>
                         <div class="col-6 col-md-5 filter">
                             <h3>Disponibilidad</h3>
                             <ul class="availability">
@@ -38,7 +38,7 @@ $disponibilidad = ['Disponible', 'No Disponible', 'Proximamente'];
                                 <?php endforeach; ?>
                             </ul>
                         </div>
-                    <?php endif; if($rooms): ?>
+                    <?php endif; if(!empty($rooms)): ?>
                         <div class="col-6 col-md-7 filter">
                             <h3>Habitaciones</h3>
                             <ul class="rooms">
@@ -56,14 +56,6 @@ $disponibilidad = ['Disponible', 'No Disponible', 'Proximamente'];
                 </div>
             </div>
         </div>
-        <div class="row" id="contenedor-posts"></div>
+        <div class="row" id="contenedor-posts" aria-live="polite" data-endpoint="<?= esc_url(rest_url('relatos/list')); ?>" data-category="<?= esc_attr(!empty($properties['select_category']) ? $properties['select_category']->slug : ''); ?>"></div>
     </div>
 </section>
-<script>
-    const rout = _dittoURL_ + "/wp-json/relatos/list";
-    <?php if($properties['select_category']): ?>
-        const category = '<?= $properties['select_category']->slug; ?>';
-    <?php else: ?>
-        const category = '';
-    <?php endif; ?>
-</script>

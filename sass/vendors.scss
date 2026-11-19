@@ -1,0 +1,44 @@
+// Librerías de terceros importadas desde node_modules (npm).
+// Bootstrap solo con los módulos que usa el theme (no se usa su JS).
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+// Solo las familias de utilidades que se usan (display, flex, spacing, texto…)
+$utilities: map-get-multiple($utilities, (
+    "align-items", "align-self", "justify-content", "flex", "flex-direction", "flex-wrap", "flex-grow", "flex-shrink", "gap", "order",
+    "display", "position", "overflow", "width", "height",
+    "margin", "margin-x", "margin-y", "margin-top", "margin-end", "margin-bottom", "margin-start",
+    "padding", "padding-x", "padding-y", "padding-top", "padding-end", "padding-bottom", "padding-start",
+    "text-align", "font-weight", "text-decoration", "text-transform", "rounded", "visibility"
+));
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/helpers";
+@import "~bootstrap/scss/utilities/api";
+
+// Owl Carousel
+@import "~owl.carousel/dist/assets/owl.carousel.min.css";
+
+// Font Awesome (webfont, sin el JS de 1.5MB que convertía a SVG)
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+$fa-font-display: swap;
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";

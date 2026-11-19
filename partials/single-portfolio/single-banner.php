@@ -4,7 +4,7 @@ $taxonomia = 'portfolio_cat';
 $terminos_asignados = get_the_terms($post_id, $taxonomia);
 
 ob_start(); // ← Iniciar captura de HTML
-if ($terminos_asignados && !is_wp_error($terminos_asignados)) {
+if (!empty($terminos_asignados) && !is_wp_error($terminos_asignados)) {
     $todos_los_terminos = [];
 
     foreach ($terminos_asignados as $term) {
@@ -41,11 +41,61 @@ if ($terminos_asignados && !is_wp_error($terminos_asignados)) {
 }
 /* Banner */
 $thumb_id = get_post_thumbnail_id(get_the_ID());
-$image = wp_get_attachment_image_src($thumb_id, 'full');
+
+// En propiedades vacacionales el banner es un slide: imagen destacada + primeras 5 de la galería
+$slide_images = array();
+if (get_field('is_vacant_properties') === true) {
+    $galeria = get_field('galeria');
+    if (!empty($galeria) && is_array($galeria)) {
+        foreach ($galeria as $img) {
+            if (empty($img['ID']) || (int) $img['ID'] === (int) $thumb_id) continue;
+            $slide_images[] = $img;
+            if (count($slide_images) === 5) break;
+        }
+    }
+}
+$is_slider = !empty($slide_images);
+$marca_banner = get_template_directory_uri().'/images/logo-marca-de-agua-popup.png';
 ?>
 
-<section class="single-banner-partial-1c9173" onclick="openModal();">
-    <img src="<?= $image[0]; ?>" alt="<?= get_the_title(); ?>" width="<?= $image[1]; ?>" height="<?= $image[2]; ?>" class="main-image">
+<section class="single-banner-partial-1c9173<?= $is_slider ? ' is-slider' : ''; ?>">
+    <?php if ($is_slider): ?>
+        <div class="single-banner-slider owl-carousel" data-watermark="<?= esc_url($marca_banner); ?>">
+            <div class="item">
+                <?= wp_get_attachment_image($thumb_id, 'full', false, array(
+                    'class' => 'main-image js-banner-watermark',
+                    'alt' => get_the_title(),
+                    'sizes' => '100vw',
+                    'loading' => 'eager',
+                    'fetchpriority' => 'high',
+                    'decoding' => 'async'
+                )) ?>
+            </div>
+            <?php
+            // Con srcset: el navegador elige la resolución adecuada y la marca se dibuja sobre esa
+            foreach ($slide_images as $img): ?>
+                <div class="item">
+                    <?= wp_get_attachment_image($img['ID'], 'full', false, array(
+                        'class' => 'main-image js-banner-watermark',
+                        'alt' => $img['alt'] ?: get_the_title(),
+                        'sizes' => '100vw',
+                        'loading' => 'lazy',
+                        'fetchpriority' => 'low',
+                        'decoding' => 'async'
+                    )) ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php else: ?>
+        <?= wp_get_attachment_image($thumb_id, 'full', false, array(
+            'class' => 'main-image',
+            'alt' => get_the_title(),
+            'sizes' => '100vw',
+            'loading' => 'eager',
+            'fetchpriority' => 'high',
+            'decoding' => 'async'
+        )) ?>
+    <?php endif; ?>
     <div class="text-content">
         <h1><?= the_title(); ?></h1>
         <p>In <?= $html_terminos; ?></p>
