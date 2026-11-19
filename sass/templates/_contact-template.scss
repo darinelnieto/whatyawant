@@ -41,7 +41,8 @@
                         svg, i{
                             font-size: 12px;
                             line-height: 2.5em;
-                            font-weight: 300;
+                            // Sin font-weight: Font Awesome Free elige el estilo por el peso
+                            // (900 = solid, 400 = regular); con 300 los iconos solid salen vacíos
                         }
                     }
                 }

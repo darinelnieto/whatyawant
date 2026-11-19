@@ -71,6 +71,9 @@ $content = get_field('i_want_to_rent_my_property');
             </div>
         </div>
     </section>
+    <div class="py-5 mb-4">
+        <?php get_template_part('partials/home/instagram'); ?>
+    </div>
 </main>
 <?php get_footer(); ?>
                     
