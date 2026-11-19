@@ -12,7 +12,7 @@ import $ from 'jquery';
 import 'owl.carousel';
 
 import initHeader from './modules/header';
-import initBanner from './modules/banner';
+import initBanner, { initGenericBanner } from './modules/banner';
 import initZones from './modules/zones';
 import initFaq from './modules/faq';
 import initPortfolio from './modules/portfolio';
@@ -28,6 +28,7 @@ window.ditto = {
 $(() => {
     initHeader();
     initBanner();
+    initGenericBanner();
     initZones();
     initFaq();
     initPortfolio();

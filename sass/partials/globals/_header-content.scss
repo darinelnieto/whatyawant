@@ -14,6 +14,12 @@
         border: none;
      }
     .container{
+        @media screen and (min-width: 992px) and (max-width:1200px){
+            max-width: 1110px !important;
+        }
+        // @media (min-width: 992px){
+        //     max-width: 1110px !important;
+        // }
         .logo-contain{
             a{
                 img{
@@ -191,7 +197,7 @@
                 ul{
                     li{
                         a{
-                            font-size: 11px;
+                            font-size: 14px;
                         }
                     }
                 }

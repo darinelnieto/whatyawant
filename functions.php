@@ -363,6 +363,19 @@ function portfolio_list_handler($request){
     'order' => 'ASC',
   ];
 
+  // Sin categoría seleccionada: todas menos "Propiedades vacías" y sus categorías hijas
+  if (empty($request['category']) && empty($request['vacant']) && term_exists('propiedades-vacias', 'portfolio_cat')) {
+    $query['tax_query'] = array(
+      array(
+        'taxonomy' => 'portfolio_cat',
+        'field' => 'slug',
+        'terms' => array('propiedades-vacias'),
+        'operator' => 'NOT IN',
+        'include_children' => true,
+      ),
+    );
+  }
+
   // Listado de propiedades sin amoblar (template "Vacant properties")
   if (!empty($request['vacant'])) {
     $query['meta_query'] = array(

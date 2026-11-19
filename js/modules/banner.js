@@ -43,3 +43,35 @@ export default function initBanner() {
         onRefreshed: labelControls
     });
 }
+
+/*========= Banner genérico en slide (template vacant properties) =========*/
+export function initGenericBanner() {
+    const $slider = $('.generic-banner-partial-ef644c .generic-banner-slider');
+    if (!$slider.length) return;
+
+    $slider.owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: true,
+        loop: $slider.children('.item').length > 1,
+        nav: true,
+        dots: false,
+        navText: [
+            '<i class="fa fa-fw fa-angle-left" aria-hidden="true"></i>',
+            '<i class="fa fa-fw fa-angle-right" aria-hidden="true"></i>'
+        ],
+        items: 1,
+        responsive: {
+            0: {
+                dots: true,
+                nav: false
+            },
+            768: {
+                dots: false,
+                nav: true
+            }
+        },
+        onInitialized: labelControls,
+        onRefreshed: labelControls
+    });
+}
